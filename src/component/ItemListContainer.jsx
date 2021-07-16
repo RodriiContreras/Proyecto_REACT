@@ -1,10 +1,9 @@
 import React from 'react'
 
-function ItemListContainer() {
-    let nombre = 'Hola Mundo'
+function ItemListContainer(props){
     return (
         <div>
-            <h1 style={{fontSize:'40px'}}>{nombre}</h1>
+            <h1 style={{fontSize:'40px'}}>{props.greeting}</h1>
         </div>
     )
 }
