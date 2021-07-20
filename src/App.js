@@ -24,7 +24,6 @@ function App() {
          <Opacidad/>
          <ImagenHome />
           <ItemListContainer greeting='Burger House'/>
-          <ItemCount/>
     </div>
   );
 }
