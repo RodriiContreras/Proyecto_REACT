@@ -1,22 +1,30 @@
+// Seccion Home
 import Logo from './component/imagen/logo2.png'
-import './App.css';
+import ImagenHome from './component/imagen/ImagenHome';
 import NavBar from './component/NavBar/NavBar';
-import 'bootstrap/dist/css/bootstrap.min.css' 
 import ItemListContainer from './component/ItemListContainer';
 import Opacidad from './component/opacidad/Opacidad';
-import ImagenHome from './component/imagen/ImagenHome';
+// Finalizacion de  Seccion Home
+
+// Fuentes,estilos, etc
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css' 
+import ItemCount from './component/ItemCount/ItemCount';
+// Finalizacion Fuentes,estilos, etc
+
 
 
 function App() {
+
+//  }
   return (
     <div className="App">
      <a href={'#'}><img style={{position:'absolute',width:'90px',left:'40px'}} src={Logo}></img></a> 
          <NavBar/>
          <Opacidad/>
          <ImagenHome />
-         {/* <img style={{width:'99.14vw',height:'95vh',margin:'0'}} src={imagen1}/> */}
           <ItemListContainer greeting='Burger House'/>
-
+          <ItemCount/>
     </div>
   );
 }

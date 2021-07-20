@@ -9,7 +9,7 @@ function Opacidad() {
             opacity:'75%',
             backgroundColor:'black',
             width:'99.14vw',
-            height:'95vh',
+            height:'91.8vh',
 
             
             

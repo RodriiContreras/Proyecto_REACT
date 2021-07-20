@@ -5,7 +5,7 @@ import LogoImagenHome from './LogoImagenHome'
 function ImagenHome() {
     return (
         <div>
-             <img style={{width:'99.14vw',height:'95vh',margin:'0'}} src={imagen1}/>
+             <img style={{width:'99.14vw',height:'91.8vh',margin:'0'}} src={imagen1}/>
              <LogoImagenHome/>
         </div>
     )
