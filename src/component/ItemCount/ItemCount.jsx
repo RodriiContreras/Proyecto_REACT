@@ -3,25 +3,23 @@ import { useState } from 'react';
 
 
 function ItemCount() {
-    const [state,setState] =useState(0)
+    let [state,setState] =useState(0)
 function sumar (){
-    let parrafoCantidad = document.getElementById("cantidad")
-    if(parrafoCantidad.innerText < 10 ){
-    setState(state + 1 );
+    if (state < 10){
+       setState(state + 1) 
     }
-   else if(parrafoCantidad.innerText = 10){
-      setState (state)
-  }
+    else if (useState >10){
+     setState(state)
+    }   
 
 }
 function restar (){
-    let parrafoCantidad = document.getElementById("cantidad")
-    if(parrafoCantidad.innerText > 0 ){
-    setState(state - 1);
-    }
-   else if(parrafoCantidad.innerText <0){
-      setState (state)
-  }
+    if (state > 0){
+        setState(state - 1) 
+     }
+     else if (useState < 0){
+      setState(state)
+     }   
 }
     return (
         <div style={{width:'300px',textAlign:'center',backgroundColor:'rgb(227, 225, 225)'}}>
