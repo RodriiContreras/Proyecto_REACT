@@ -10,6 +10,8 @@ import Opacidad from './component/opacidad/Opacidad';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css' 
 import ItemCount from './component/ItemCount/ItemCount';
+import Item from './component/Items/Item';
+import ItemList from './component/Items/ItemList';
 // Finalizacion Fuentes,estilos, etc
 
 
@@ -24,6 +26,8 @@ function App() {
          <Opacidad/>
          <ImagenHome />
           <ItemListContainer greeting='Burger House'/>
+          <ItemList/>
+
     </div>
   );
 }
