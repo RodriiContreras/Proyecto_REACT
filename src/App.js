@@ -26,7 +26,6 @@ function App() {
          <Opacidad/>
          <ImagenHome />
           <ItemListContainer greeting='Burger House'/>
-          <ItemList/>
 
     </div>
   );
