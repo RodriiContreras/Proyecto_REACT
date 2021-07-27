@@ -4,14 +4,19 @@ import {useState,useEffect} from 'react'
 function ItemDetailContainer() {
     const [listaCervezas, setlistaCervezas] = useState([])
     useEffect(() => { 
+        function obtenerDatos(){
         fetch('https://api.punkapi.com/v2/beers')
-    .then(data=>data)
+    .then(data=>data.json())
     .then(res =>setlistaCervezas(res))
-    console.log(listaCervezas)
+}
+obtenerDatos()
        },  [])
+       console.log(listaCervezas)
     return (
         <div>
-            {listaCervezas.map()}
+{listaCervezas.map(cervezas=>(<div style={{display:'flex'}}><p>{cervezas.name}
+<p>{cervezas.description}</p>
+</p></div>))}
         </div>
     )
 }
