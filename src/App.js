@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemCount from './component/ItemCount/ItemCount';
 import Item from './component/Items/Item';
 import ItemList from './component/Items/ItemList';
+import ItemDetailContainer from './component/Items/ItemDetailContainer';
 // Finalizacion Fuentes,estilos, etc
 
 
