@@ -14,9 +14,11 @@ obtenerDatos()
        console.log(listaCervezas)
     return (
         <div>
-{listaCervezas.map(cervezas=>(<div style={{display:'flex'}}><p>{cervezas.name}
-<p>{cervezas.description}</p>
+            <div style={{display:'flex', flexWrap:'wrap'}}>
+{listaCervezas.map(cervezas=>(<div style={{paddingLeft:'30px'}}><p style={{fontWeight:'bolder'}}>{cervezas.name}
+<p>{cervezas.id}</p>
 </p></div>))}
+      </div>
         </div>
     )
 }
