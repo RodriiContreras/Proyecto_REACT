@@ -6,6 +6,9 @@ import ItemListContainer from './component/ItemListContainer';
 import Opacidad from './component/opacidad/Opacidad';
 // Finalizacion de  Seccion Home
 
+// ROUTE
+import {BrowserRouter as Router,Switch,Route, Link} from 'react-router-dom';
+// FINALIZACION DE ROUTE
 // Fuentes,estilos, etc
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css' 
@@ -21,14 +24,25 @@ function App() {
 
 //  }
   return (
-    <div className="App">
-     <a href={'#'}><img style={{position:'absolute',width:'90px',left:'40px'}} src={Logo}></img></a> 
-         <NavBar/>
-         <Opacidad/>
-         <ImagenHome />
-          <ItemListContainer greeting='Burger House'/>
-
-    </div>
+    <Router>
+     <div className="App">
+     <NavBar/>
+            <Switch>
+            
+            <Route exact path='/'>
+               <ImagenHome greeting='Burger House'/>
+               <Opacidad/>
+               {/* <ItemListContainer /> */}
+               </Route>
+               <Route exact path='/productos' >
+                 <ItemListContainer/>
+               </Route>
+               <Route exact path="/productos/:productosId" >
+                 <ItemListContainer/>
+               </Route>
+            </Switch>
+      </div>
+    </Router>
   );
 }
 

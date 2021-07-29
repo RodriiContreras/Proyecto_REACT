@@ -13,16 +13,11 @@ function ItemDetailContainer() {
  .then(data=>data.json())
  .then(resp=>resp.slice(0,6))
  .then(respuestaArray=>setlistaCervezas(respuestaArray))
-        // const respuesta = await fetch(url)
-        //  const json = await respuesta.json()
-        //  const arrayLimitado = await json.slice(0,6)
+
         
 }   
 setTimeout(obtenerDatos,3000)
        },  [])
-
-
-//  const resultadofinal = await json.slice(0,limite)
 
 
    return (

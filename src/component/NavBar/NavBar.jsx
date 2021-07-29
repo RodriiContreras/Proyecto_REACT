@@ -1,7 +1,8 @@
-
+import {NavLink} from 'react-router-dom'
 import React from 'react'
 import CartWidget from '../CartWidget'
 import './NavBar.css'
+import Logo from '../imagen/logo2.png'
 
 function NavBar() {
     return (
@@ -14,9 +15,11 @@ function NavBar() {
           margin:0,
           justifyContent:'center' 
           }}>
-            <a className="navbar_botones" style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} href={''}>Productos</a>
-            <a className="navbar_botones" style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black',fontFamily:'Raleway, sans-serif'}} href={''}>Sucursales</a>
-            <a className="navbar_botones"style={{fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black',fontFamily:'Raleway, sans-serif'}} href={'#'}>Contactanos</a>
+            <NavLink to='/'><img style={{position:'absolute',width:'90px',left:'40px'}} src={Logo}></img></NavLink>
+            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Carne">Productos</NavLink>
+            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Productos Veganos</NavLink>
+            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/">Sucursales</NavLink>
+            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/">Contactanos</NavLink>
         </div>
         <CartWidget/>
 
