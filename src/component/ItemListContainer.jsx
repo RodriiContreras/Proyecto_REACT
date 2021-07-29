@@ -22,7 +22,7 @@ const items =[
     {id:'3',
     titulo:'Veggie Burger',
     precio:550,
-    categoria:'Vegana'
+    categoria:'Vegano'
     },
     {id:'4',
     titulo:'Double Bacon',
@@ -57,7 +57,7 @@ const items =[
     {id:'10',
     titulo:'Veggie Burger',
     precio:550,
-    categoria:'Vegana'
+    categoria:'Vegano'
     }
   ]
 
@@ -65,27 +65,30 @@ const items =[
 
 function ItemListContainer(props){
     const [itemLista, setListaItems] = useState([])
-const {productosId} = useParams()
-
+const {productosId} =useParams()
     useEffect(() => {
         const task = new Promise ((resuelto,rechazado)=>{
-       
          if (productosId === 'Carne'){
              setTimeout(()=>{
-                resuelto(items)   
+                resuelto(items.filter(carne=> carne.categoria===productosId))   
              },2000)
-      
          }
-         else{
-             rechazado('rechazado')
-         } 
-      })
-      .then((resp)=>setListaItems(resp.filter(carne => carne.categoria===productosId)))
-       .catch(err=>{console.log('alto error')})
+         else if(productosId ==='Vegano'){
+          
+          setTimeout(()=>{
+           
+          resuelto(items.filter(vegano=> vegano.categoria===productosId)) 
+          },2000)
+        }
+        else{
+          rechazado('no Messirve')
+        }
+    })
+      .then(resp=>setListaItems(resp))
+      .catch(err=>{console.log('alto error')}) 
 
-    },  [])
-
-    console.log(productosId)
+    } ,  [])
+console.log(productosId)
     return (
         <div>
             <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
