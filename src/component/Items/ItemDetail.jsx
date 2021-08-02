@@ -1,5 +1,4 @@
 import React from 'react'
-import Cerveza from '../imagen/lager.jpg'
 
 function ItemDetail({listaCervezas}) {
     return (

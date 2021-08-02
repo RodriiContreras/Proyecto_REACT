@@ -1,7 +1,6 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import ItemDetail from './ItemDetail'
-import Cerveza from '../imagen/lager.jpg'
 
 function ItemDetailContainer() {
 
@@ -22,7 +21,7 @@ setTimeout(obtenerDatos,5000)
 
    return (
         <div>
-        <div style={{width:'100%',position:'relative',top:'6px',textAlign:'center',backgroundColor:'rgba(237,176,38,255)'}}><h2 style={{paddingTop:'5px',fontSize:'60px',fontWeight:'bolder'}}>Bebidas</h2></div>
+        <div style={{width:'100%',position:'relative',top:'5px',textAlign:'center',backgroundColor:'rgba(237,176,38,255)'}}><h2 style={{paddingTop:'1px',fontSize:'60px',color:'BLACK'}}>Bebidas</h2></div>
       <ItemDetail listaCervezas={listaCervezas}/>
         </div> 
     )
