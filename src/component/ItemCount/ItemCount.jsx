@@ -20,7 +20,6 @@ function ItemCount({inicial,stock,carrito,nombre}) {
 
     return (
         <div style={{width:'300px',textAlign:'center',height:'150px',backgroundColor:'rgb(227, 225, 225)',position:'relative',left:'90px',top:'5px',marginLeft:'25px',marginTop:'25px'}}>
-            
             <p>{nombre}</p>
 
             <div className="Count_Button" style={{ display:'flex',justifyContent:'center',width:'300px',flexWrap:'wrap'}}>
