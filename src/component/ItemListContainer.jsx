@@ -121,8 +121,9 @@ console.log(productosId)
             <ItemCount  nombre={'Old School Burger'} stock={10} inicial={1} carrito={contador}/>
             <ItemCount  nombre={'Double Bacon'} stock={10} inicial={1} carrito={contador}/>
           </div>
-
+         <div>
           <ItemDetailContainer/>
+          </div>
         </div>
 
     )
