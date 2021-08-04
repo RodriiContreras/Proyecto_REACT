@@ -40,6 +40,9 @@ function App() {
                <Route exact path="/productos/:productosId" >
                  <ItemListContainer/>
                </Route>
+               <Route exact path="/item/bebidas/" >
+                 <ItemDetailContainer/>
+               </Route>
                <Route exact path="/item/bebidas/:Id" >
                  <ItemDetailContainer/>
                </Route>
