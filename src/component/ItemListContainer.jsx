@@ -3,7 +3,7 @@ import ItemCount from './ItemCount/ItemCount'
 import ItemList from './Items/ItemList'
 import {useEffect, useState} from 'react'
 import ItemDetailContainer from './Items/ItemDetailContainer'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CheeseBurger from './imagen/cheeseBurger.jpg'
 import TapaArterias from './imagen/TapaArterias.jpg'
 import Bacon from './imagen/HamburguesaBacon.jpg'
@@ -74,6 +74,18 @@ const items =[
     precio:550,
     categoria:'Vegano',
     imagen:CheeseBurger
+    },
+    {id:'10',
+    titulo:'Veggie Burger',
+    precio:550,
+    categoria:'Vegano',
+    imagen:CheeseBurger
+    },
+    {id:'10',
+    titulo:'Veggie Burger',
+    precio:550,
+    categoria:'Vegano',
+    imagen:CheeseBurger
     }
   ]
 
@@ -82,31 +94,41 @@ const items =[
 function ItemListContainer(props){
     const [itemLista, setListaItems] = useState([])
 const {productosId} =useParams()
-    useEffect(() => {
-        const task = new Promise ((resuelto,rechazado)=>{
-         if (productosId === 'Carne'){
-             setTimeout(()=>{
-                resuelto(items.filter(carne=> carne.categoria===productosId))   
-             },2000)
-         }
-         else if(productosId ==='Vegano'){
-          
-          setTimeout(()=>{
-           
-          resuelto(items.filter(vegano=> vegano.categoria===productosId)) 
-          },2000)
-        }
-        else{
-          rechazado('no Messirve')
-        }
-    })
-      .then(resp=>setListaItems(resp))
-      .catch(err=>{console.log('alto error')}) 
+const task = new Promise ((resuelto)=>{
+  if (productosId === 'Carne'){
+      setTimeout(()=>{
+         resuelto(items.filter(carne=> carne.categoria===productosId))   
+      },500)
+  }
+  else if(productosId ==='Vegano'){
+   
+   setTimeout(()=>{
+    
+   resuelto(items.filter(vegano=> vegano.categoria===productosId)) 
+   },500)
+   console.log(productosId)
+ }
+ else{
+   resuelto(items)
+ }
+},
 
-    } ,  [])
+    useEffect(() => {
+      const getPromise =()=>{
+        return task
+      }
+         getPromise()
+        .then(resp=>setListaItems(resp))
+        .catch(err=>{console.log('alto error')}) 
+    }),[])
 console.log(productosId)
     return (
         <div>
+          <div style={{backgroundColor:'black',display:'flex',justifyContent:'center',paddingTop:'5px'}}>
+            <Link style={{borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to="/productos/Carne">Hamburguesas</Link>
+            <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
+            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Bebidas</Link>
+          </div>
              <ItemList listaItems={itemLista}/> 
           <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
           <div style={{display:'flex',flexWrap:'wrap',width:'90%'}}>
@@ -121,8 +143,8 @@ console.log(productosId)
             <ItemCount  nombre={'Old School Burger'} stock={10} inicial={1} carrito={contador}/>
             <ItemCount  nombre={'Double Bacon'} stock={10} inicial={1} carrito={contador}/>
           </div>
-         <div>
-          <ItemDetailContainer/>
+         <div>    
+            <ItemDetailContainer/>
           </div>
         </div>
 

@@ -16,8 +16,8 @@ function NavBar() {
           justifyContent:'center' 
           }}>
             <NavLink to='/'><img style={{position:'absolute',width:'90px',left:'40px'}} src={Logo}></img></NavLink>
-            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Carne">Productos</NavLink>
-            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Productos Veganos</NavLink>
+            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos">Productos</NavLink>
+            {/* <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Productos Veganos</NavLink> */}
             <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/">Sucursales</NavLink>
             <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/">Contactanos</NavLink>
         </div>
