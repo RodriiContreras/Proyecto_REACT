@@ -10,13 +10,17 @@ function ItemDetailContainer() {
 
 const itemsId =new Promise((resuelto)=>{
   setTimeout(()=>{
-if(Id === 'cervezas'){
+if(Id === 'cerveza1'){
   const url = 'https://api.punkapi.com/v2/beers'
-resuelto(fetch('https://api.punkapi.com/v2/beers'))
+resuelto(fetch('https://api.punkapi.com/v2/beers'
+))
 }
+ else{
+   const url = 'https://api.punkapi.com/v2/beers'
+   resuelto(fetch('https://api.punkapi.com/v2/beers'))
+ }
 },2000)
 })
-console.log(Id)
     useEffect(() => { 
     const ObtenerItems =()=>{
       return itemsId
@@ -29,8 +33,8 @@ console.log(Id)
 
 
    return (
-        <div>
-      <ItemDetail listaCervezas={listaCervezas}/>
+        <div >
+      <ItemDetail  listaCervezas={listaCervezas}/>
         </div> 
     )
 }

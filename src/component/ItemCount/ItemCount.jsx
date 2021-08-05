@@ -19,10 +19,10 @@ function ItemCount({botonId,inicial,stock,carrito,nombre}) {
 
 
     return (
-        <div style={{width:'300px',textAlign:'center',height:'150px',backgroundColor:'rgb(227, 225, 225)',position:'relative',left:'90px',top:'5px',marginLeft:'25px',marginTop:'25px'}}>
+        <div style={{width:'250px',textAlign:'center',height:'100px',backgroundColor:'rgb(227, 225, 225)',top:'5px',marginTop:'25px'}}>
             <p>{nombre}</p>
 
-            <div className="Count_Button" style={{ display:'flex',justifyContent:'center',width:'300px',flexWrap:'wrap'}}>
+            <div className="Count_Button" style={{ display:'flex',justifyContent:'center',width:'270px',flexWrap:'wrap'}}>
           
            <button  style={{height:'35px'}} className="btn btn-dark" onClick={restar}>-</button>
           
@@ -30,7 +30,7 @@ function ItemCount({botonId,inicial,stock,carrito,nombre}) {
 
             <button style={{height:'35px'}} className="btn btn-dark" onClick={sumar}>+</button>
            </div> 
-           <button onClick={()=>carrito(cantidad)} id={botonId} class="btn btn-warning" style={{display:'block',width:'200px',position:'relative',left:'60px'}}>Agregar al Carrito</button>
+           <button onClick={()=>carrito(cantidad)} id={botonId} class="btn btn-warning" style={{display:'block',width:'200px',position:'relative',left:'30px'}}>Agregar al Carrito</button>
         </div>
     )
 }
