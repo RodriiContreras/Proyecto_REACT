@@ -15,6 +15,16 @@ const contador= (cantidad) =>{
 }
 
 
+
+function Click (){
+  return(
+      <div id='divLink'>
+      <Link style={{color:'black',textDecoration:'none'}} id='link' to='/cart'>Finalizar Mi Pedido</Link>
+      </div>
+  )
+   }
+
+
 const items =[
     {id:'1',
     titulo:'Burger House',
@@ -23,7 +33,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link id='link1' onClick={producto1} to='/productos/1'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'><ItemCount id='boton1' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto1'><Click/></div>
   },
     {id:'2',
     titulo:'CheeseBurger',
@@ -32,7 +43,8 @@ const items =[
     imagen:TapaArterias,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto2} to='/productos/2'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click/></div>
     },
     {id:'3',
     titulo:'Veggie Burger',
@@ -41,7 +53,8 @@ const items =[
     imagen:VeganBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto3} to='/productos/3'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click/></div>
     },
     {id:'4',
     titulo:'Double Bacon',
@@ -50,7 +63,8 @@ const items =[
     imagen:Bacon,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto4} to='/productos/4'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click/></div>
     },
     {id:'5',
     titulo:'Tapa Arterias',
@@ -59,7 +73,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto5} to='/productos/5'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click/></div>
     },
     {id:'6',
     titulo:'Old School Burger',
@@ -68,7 +83,8 @@ const items =[
     precio:550,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto6} to='/productos/6'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click/></div>
     },
     {id:'7',
     titulo:'Triple CheeseBurger',
@@ -77,7 +93,8 @@ const items =[
     imagen:TripleCheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto7} to='/productos/7'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click/></div>
     },
     {id:'8',
     titulo:'Old School Burger',
@@ -86,7 +103,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto8} to='/productos/8'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click/></div>
     },
     {id:'9',
     titulo:'Double Bacon',
@@ -95,7 +113,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto9} to='/productos/9'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click/></div>
     },
     {id:'10',
     titulo:'Veggie Burger',
@@ -104,7 +123,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto10} to='/productos/10'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click/></div>
     },
     {id:'11',
     titulo:'Veggie Burger',
@@ -113,7 +133,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto11} to='/productos/11'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click/></div>
     },
     {id:'12',
     titulo:'Veggie Burger',
@@ -122,7 +143,8 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto12} to='/productos/12'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount stock={10} inicial={1} carrito={contador}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click/></div>
     }
   ]
   function producto1(){
@@ -135,67 +157,67 @@ const items =[
    setTimeout(()=>{
   let div =document.getElementById('contenedorcount2')
   div.style.visibility=('visible')
-  },500)
+  },800)
   }
   function producto3(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount3')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto4(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount4')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto5(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount5')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto6(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount6')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto7(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount7')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto8(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount8')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto9(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount9')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto10(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount10')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto11(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount11')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
    function producto12(){
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount12')
    div.style.visibility=('visible')
-   },500)
+   },800)
    }
 
 function ItemListContainer(props){
@@ -210,64 +232,149 @@ const task = new Promise ((resuelto)=>{
  else if (productosId === '1'){
     setTimeout(()=>{
        resuelto(items.filter(carne=> carne.id===productosId))   
+    
     },500)
-
+    let boton=  document.getElementById('boton1')
+       boton.addEventListener('click',function(){
+         let count = document.getElementById('contenedorcount1')
+         count.style.visibility=('hidden')
+         let finalizar = document.getElementById('producto1')
+         finalizar.style.visibility=('visible')
+       })
 }
 else if (productosId === '2'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton1=  document.getElementById('boton2')
+  boton1.addEventListener('click',function(){
+    let count1 = document.getElementById('contenedorcount2')
+    count1.style.visibility=('hidden')
+    let finalizar1 = document.getElementById('producto2')
+    finalizar1.style.visibility=('visible')
+  })
+
 }
 else if (productosId === '3'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton3=  document.getElementById('boton3')
+  boton3.addEventListener('click',function(){
+    let count3 = document.getElementById('contenedorcount3')
+    count3.style.visibility=('hidden')
+    let finalizar3 = document.getElementById('producto3')
+    finalizar3.style.visibility=('visible')
+  })
 }
+
 else if (productosId === '4'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton4=  document.getElementById('boton4')
+  boton4.addEventListener('click',function(){
+    let count4 = document.getElementById('contenedorcount4')
+    count4.style.visibility=('hidden')
+    let finalizar4 = document.getElementById('producto4')
+    finalizar4.style.visibility=('visible')
+  })
 }
 else if (productosId === '5'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton5=  document.getElementById('boton5')
+  boton5.addEventListener('click',function(){
+    let count5 = document.getElementById('contenedorcount5')
+    count5.style.visibility=('hidden')
+    let finalizar5 = document.getElementById('producto5')
+    finalizar5.style.visibility=('visible')
+  })
 }
 else if (productosId === '6'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-
   },500)
+  let boton6=  document.getElementById('boton6')
+  boton6.addEventListener('click',function(){
+    let count6 = document.getElementById('contenedorcount6')
+    count6.style.visibility=('hidden')
+    let finalizar6 = document.getElementById('producto6')
+    finalizar6.style.visibility=('visible')
+  })
 }
 else if (productosId === '7'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton7=  document.getElementById('boton7')
+  boton7.addEventListener('click',function(){
+    let count7 = document.getElementById('contenedorcount7')
+    count7.style.visibility=('hidden')
+    let finalizar7 = document.getElementById('producto7')
+    finalizar7.style.visibility=('visible')
+  })
 }
 else if (productosId === '8'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton8=  document.getElementById('boton8')
+  boton8.addEventListener('click',function(){
+    let count8 = document.getElementById('contenedorcount8')
+    count8.style.visibility=('hidden')
+    let finalizar8 = document.getElementById('producto8')
+    finalizar8.style.visibility=('visible')
+  })
 }
 else if (productosId === '9'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton9=  document.getElementById('boton9')
+  boton9.addEventListener('click',function(){
+    let count9 = document.getElementById('contenedorcount8')
+    count9.style.visibility=('hidden')
+    let finalizar9 = document.getElementById('producto9')
+    finalizar9.style.visibility=('visible')
+  })
 }
 else if (productosId === '10'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton10=  document.getElementById('boton10')
+  boton10.addEventListener('click',function(){
+    let count10 = document.getElementById('contenedorcount10')
+    count10.style.visibility=('hidden')
+    let finalizar10 = document.getElementById('producto10')
+    finalizar10.style.visibility=('visible')
+  })
 }
 else if (productosId === '11'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton11=  document.getElementById('boton11')
+  boton11.addEventListener('click',function(){
+    let count11 = document.getElementById('contenedorcount11')
+    count11.style.visibility=('hidden')
+    let finalizar11 = document.getElementById('producto11')
+    finalizar11.style.visibility=('visible')
+  })
 }
 else if (productosId === '12'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },500)
+  let boton12=  document.getElementById('boton12')
+  boton12.addEventListener('click',function(){
+    let count12 = document.getElementById('contenedorcount12')
+    count12.style.visibility=('hidden')
+    let finalizar12 = document.getElementById('producto12')
+    finalizar12.style.visibility=('visible')
+  })
 }
 
 

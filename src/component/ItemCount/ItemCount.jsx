@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 
-function ItemCount({botonId,inicial,stock,carrito,nombre}) {
+function ItemCount({id,inicial,stock,carrito,nombre}) {
     let [cantidad,setCantidad] =useState(inicial)
 
     const sumar =()=>{
@@ -30,7 +30,7 @@ function ItemCount({botonId,inicial,stock,carrito,nombre}) {
 
             <button style={{height:'35px'}} className="btn btn-dark" onClick={sumar}>+</button>
            </div> 
-           <button onClick={()=>carrito(cantidad)} id={botonId} class="btn btn-warning" style={{display:'block',width:'200px',position:'relative',left:'30px'}}>Agregar al Carrito</button>
+           <button onClick={()=>carrito(cantidad)} id={id} class="btn btn-warning" style={{display:'block',width:'200px',position:'relative',left:'30px'}}>Agregar al Carrito</button>
         </div>
     )
 }

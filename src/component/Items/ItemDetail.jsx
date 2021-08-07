@@ -8,27 +8,7 @@ function ItemDetail({listaCervezas}) {
   
     const Contador= (cantidades) =>{
     setCantidad(cantidades)
-    evento()
     }
-    function evento(){
-        const DOM = document.getElementById('boton')
-        DOM.addEventListener('click',function(){
-            DOM.style.visibility=('hidden')
-            if(DOM.visibility='hidden'){
-             let botonNuevo =   document.getElementById('divLink')
-             botonNuevo.style.visibility=('visible')
-            }
-        })
-    }
-
-    function Click (){
-   return(
-       <div id='divLink' style={{position:'relative',bottom:'70px',left:'170px',width:'200px',height:'40px',visibility:'hidden',backgroundColor:'rgba(237,176,38,255)',zIndex:'1000'}}>
-       <Link style={{color:'black',textDecoration:'none'}} id='link' to='/cart'>Finalizar Mi Pedido</Link>
-       </div>
-   )
-    }
-
     return (
         <div style={{display:'flex', flexWrap:'wrap',width:'400px',position:'relative',left:'300px',top:'80px'}}>
             {listaCervezas.map(cervezas => (
@@ -40,8 +20,6 @@ function ItemDetail({listaCervezas}) {
                 <div style={{position:'relative',right:'70px',bottom:'20px'}}>
                 <Link to='/item/bebidas/cervezas'>Mas Detalles</Link>
                 <ItemCount botonId='boton' stock={10} inicial={1} carrito={Contador}/>
-                <Click/>
-
                 </div>
             </div>))}
        </div>
