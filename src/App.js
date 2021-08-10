@@ -32,8 +32,9 @@ function App() {
             <Route exact path='/'>
                <ImagenHome greeting='Burger House'/>
                <Opacidad/>
-               {/* <ItemListContainer /> */}
+                <ItemListContainer /> 
                </Route>
+               
                <Route exact path='/productos' >
                  <ItemListContainer/>
                </Route>
