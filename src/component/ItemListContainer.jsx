@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext} from 'react'
+import UseCartContext,{CartContext} from './Context/CartContext'
 import ItemCount from './ItemCount/ItemCount'
 import ItemList from './Items/ItemList'
 import {useEffect, useState} from 'react'
@@ -10,17 +11,55 @@ import Bacon from './imagen/HamburguesaBacon.jpg'
 import VeganBurger from './imagen/VeganBurger.jpg'
 import OldSchool from './imagen/OldSchool.jpg'
 import TripleCheeseBurger from './imagen/TripleCheeseBurger.jpg'
+
 const contador= (cantidad) =>{
-    console.log(cantidad)
+    console.log('su cantidad de Burger House es ' + cantidad)
+}
+const contador2= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
+}
+const contador3= (cantidad) =>{
+  console.log('su cantidad de Veggie Burger es ' + cantidad)
+}
+const contador4= (cantidad) =>{
+  console.log('su cantidad de Double Bacon es ' + cantidad)
+}
+const contador5= (cantidad) =>{
+  console.log('su cantidad de TapaArterias es ' + cantidad)
+}
+const contador6= (cantidad) =>{
+  console.log('su cantidad de Old School Burger es ' + cantidad)
+}
+const contador7= (cantidad) =>{
+  console.log('su cantidad de Triple CheeseBurger es ' + cantidad)
+}
+const contador8= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
+}
+const contador9= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
+}
+const contador10= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
+}
+const contador11= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
+}
+const contador12= (cantidad) =>{
+  console.log('su cantidad de CheeseBurger es ' + cantidad)
 }
 
 
 
+
+
 function Click (){
+
   return(
       <div id='divLink'>
       <Link style={{color:'black',textDecoration:'none'}} id='link' to='/cart'>Finalizar Mi Pedido</Link>
       </div>
+
   )
    }
 
@@ -43,7 +82,7 @@ const items =[
     imagen:TapaArterias,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto2} to='/productos/2'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} carrito={contador2}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click/></div>
     },
     {id:'3',
@@ -53,7 +92,7 @@ const items =[
     imagen:VeganBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto3} to='/productos/3'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} carrito={contador3}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click/></div>
     },
     {id:'4',
@@ -63,7 +102,7 @@ const items =[
     imagen:Bacon,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto4} to='/productos/4'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} carrito={contador4}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click/></div>
     },
     {id:'5',
@@ -73,7 +112,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto5} to='/productos/5'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} carrito={contador5}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click/></div>
     },
     {id:'6',
@@ -83,7 +122,7 @@ const items =[
     precio:550,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto6} to='/productos/6'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} carrito={contador6}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click/></div>
     },
     {id:'7',
@@ -93,7 +132,7 @@ const items =[
     imagen:TripleCheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto7} to='/productos/7'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} carrito={contador7}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click/></div>
     },
     {id:'8',
@@ -103,7 +142,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto8} to='/productos/8'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} carrito={contador8}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click/></div>
     },
     {id:'9',
@@ -113,7 +152,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto9} to='/productos/9'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} carrito={contador9}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click/></div>
     },
     {id:'10',
@@ -123,7 +162,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto10} to='/productos/10'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} carrito={contador10}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click/></div>
     },
     {id:'11',
@@ -133,7 +172,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto11} to='/productos/11'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} carrito={contador11}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click/></div>
     },
     {id:'12',
@@ -143,7 +182,7 @@ const items =[
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
     link:<Link onClick={producto12} to='/productos/12'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador12}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click/></div>
     }
   ]
@@ -221,6 +260,7 @@ const items =[
    }
 
 function ItemListContainer(props){
+
     const [itemLista, setListaItems] = useState([])
 const {productosId} =useParams()
 const task = new Promise ((resuelto)=>{
@@ -389,7 +429,6 @@ else if (productosId === '12'){
    resuelto(items)
  }
 },
-
     useEffect(() => {
       const getPromise =()=>{
         return task

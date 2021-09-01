@@ -9,24 +9,45 @@ import Opacidad from './component/opacidad/Opacidad';
 // ROUTE
 import {BrowserRouter as Router,Switch,Route, Link} from 'react-router-dom';
 // FINALIZACION DE ROUTE
+
 // Fuentes,estilos, etc
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css' 
 import ItemCount from './component/ItemCount/ItemCount';
+import UseCartContext, { CartContext } from './component/Context/CartContext';
 import Item from './component/Items/Item';
 import ItemList from './component/Items/ItemList';
 import ItemDetailContainer from './component/Items/ItemDetailContainer';
+import { useContext,createContext, useEffect ,useState} from 'react';
 // Finalizacion Fuentes,estilos, etc
+const Detail =()=>{
+  const {Itemcart,setItemCart}= useContext(CartContext)
+  console.log(setItemCart)
+  console.log(Itemcart)
+  return (
+    <div>
+     
+    </div>
+  )
+}
 
-
+const ItemCart=()=>{
+return (
+  <div>
+  <Detail/>
+  </div>
+)
+}
 
 function App() {
+  useEffect(()=>{
 
-//  }
+  },[])
   return (
     <Router>
      <div className="App">
-     <NavBar/>
+       <UseCartContext>
+       <ItemCart/>
+       <NavBar/>
             <Switch>
             
             <Route exact path='/'>
@@ -48,6 +69,10 @@ function App() {
                  <ItemDetailContainer/>
                </Route>
             </Switch>
+ 
+       </UseCartContext>
+
+    
       </div>
     </Router>
   );
