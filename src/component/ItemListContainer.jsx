@@ -61,7 +61,7 @@ const {productos,setProductos} = useContext(ProductContext)
  const addToCart = ({id}) =>{
 const productoEncontrado = items.find(producto => producto.id === id)
 
-const productoContext = productos.item.find(item => item.id === id)
+const productoContext = productos.find(item => item.id === id)
 console.log(productos)
 console.log(productoContext)
 
