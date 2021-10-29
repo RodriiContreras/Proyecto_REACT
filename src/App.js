@@ -17,12 +17,12 @@ import UseCartContext, { CartContext } from './component/Context/CartContext';
 import Item from './component/Items/Item';
 import ItemList from './component/Items/ItemList';
 import ItemDetailContainer from './component/Items/ItemDetailContainer';
-import { useContext,createContext, useEffect ,useState} from 'react';
+import { useContext, useEffect ,useState} from 'react';
+import CartContextProvider from './component/Context/CartContext';
+import ProductContextProvider from './component/Context/ProductsContext';
+import Cart from './component/Cart/Cart';
 // Finalizacion Fuentes,estilos, etc
 const Detail =()=>{
-  const {Itemcart,setItemCart}= useContext(CartContext)
-  console.log(setItemCart)
-  console.log(Itemcart)
   return (
     <div>
      
@@ -43,8 +43,11 @@ function App() {
 
   },[])
   return (
+    <CartContextProvider>
+  <ProductContextProvider>
     <Router>
      <div className="App">
+    
        <UseCartContext>
        <ItemCart/>
        <NavBar/>
@@ -68,13 +71,18 @@ function App() {
                <Route exact path="/item/bebidas/" >
                  <ItemDetailContainer/>
                </Route>
+               <Route exact path="/cart" >
+                <Cart/>
+               </Route>
             </Switch>
- 
+          
        </UseCartContext>
 
-    
+
       </div>
     </Router>
+    </ProductContextProvider>
+    </CartContextProvider>
   );
 }
 

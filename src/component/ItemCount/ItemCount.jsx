@@ -1,8 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import {CartContext} from '../Context/CartContext'
 
 
 function ItemCount({id,inicial,stock,carrito,nombre}) {
+    const {setItemCart,itemCart} = useContext(CartContext)
     let [cantidad,setCantidad] =useState(inicial)
 
     const sumar =()=>{
