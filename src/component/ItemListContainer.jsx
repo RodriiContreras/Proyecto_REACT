@@ -55,12 +55,14 @@ const contador12= (cantidad) =>{
 
 
 function Click ({id}){  
+  
 const {setItemCart,itemCart} = useContext(CartContext)
 const {productos,setProductos} = useContext(ProductContext)
 
- const addToCart = ({id}) =>{
-const productoEncontrado = items.find(producto => producto.id === id)
 
+ const addToCart = ({id,carrito}) =>{
+const productoEncontrado = items.find(producto => producto.id === id)
+console.log(carrito)
 const productoContext = productos.find(item => item.id === id)
 console.log(productos)
 console.log(productoContext)
@@ -89,7 +91,7 @@ const items =[
     descripcion:'awkflawjfwakfwa',
     link:<Link id='1' onClick={producto1} to='/productos/1'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'><ItemCount id='boton1' stock={10} inicial={1} carrito={contador}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto1'><Click  id={'1'}/></div>
+    finalizar:<div style={{visibility:'hidden'}} id='producto1'><Click carrito={contador} id={'1'}/></div>
   },
     {id:'2',
     titulo:'CheeseBurger',
