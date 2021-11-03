@@ -21,6 +21,7 @@ import { useContext, useEffect ,useState} from 'react';
 import CartContextProvider from './component/Context/CartContext';
 import ProductContextProvider from './component/Context/ProductsContext';
 import Cart from './component/Cart/Cart';
+import ItemPortada from './component/Items/ItemPortada';
 // Finalizacion Fuentes,estilos, etc
 const Detail =()=>{
   return (
@@ -43,7 +44,7 @@ function App() {
 
   },[])
   return (
-  <CartContextProvider>
+  <CartContextProvider >
   <ProductContextProvider>
     <Router>
      <div className="App">
@@ -56,10 +57,10 @@ function App() {
             <Route exact path='/'>
                <ImagenHome greeting='Burger House'/>
                <Opacidad/>
-                <ItemListContainer /> 
                </Route>
                
                <Route exact path='/productos' >
+            
                  <ItemListContainer/>
                </Route>
                <Route exact path="/productos/:productosId" >

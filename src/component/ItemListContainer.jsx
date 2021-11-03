@@ -12,6 +12,9 @@ import Bacon from './imagen/HamburguesaBacon.jpg'
 import VeganBurger from './imagen/VeganBurger.jpg'
 import OldSchool from './imagen/OldSchool.jpg'
 import TripleCheeseBurger from './imagen/TripleCheeseBurger.jpg'
+import VeggieBurger from './imagen/VeggieBurger.jpg'
+import VeggieBurger2 from './imagen/VeggieBurger2.png'  
+
 
 const contador= (cantidad) =>{
     console.log('su cantidad de Burger House es ' + cantidad)
@@ -83,13 +86,13 @@ setItemCart([
 
 const items =[
     {id:'1',
-    titulo:'Burger House',
+    titulo:'CheeseBurger',
     precio:650,
     categoria:'Carne',
     cantidad:1,
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='1' onClick={producto1} to='/productos/1'>Mas detalles</Link>,
+    link:<Link id='1' style={{textDecoration:'none',color:'black'}} onClick={producto1} to='/productos/1'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'><ItemCount id='boton1' stock={10} inicial={1} carrito={contador}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto1'><Click carrito={contador} id={'1'}/></div>
   },
@@ -100,7 +103,7 @@ const items =[
     cantidad:1,
     imagen:TapaArterias,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='2' onClick={producto2} to='/productos/2'>Mas detalles</Link>,
+    link:<Link id='2' style={{textDecoration:'none',color:'black'}} onClick={producto2} to='/productos/2'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} carrito={contador2}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click id={'2'}/></div>
     },
@@ -111,7 +114,7 @@ const items =[
     cantidad:1,
     imagen:VeganBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='3' onClick={producto3} to='/productos/3'>Mas detalles</Link>,
+    link:<Link id='3' style={{textDecoration:'none',color:'black'}} onClick={producto3} to='/productos/3'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} carrito={contador3}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click id={'3'}/></div>
     },
@@ -122,7 +125,7 @@ const items =[
     cantidad:1,
     imagen:Bacon,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='4' onClick={producto4} to='/productos/4'>Mas detalles</Link>,
+    link:<Link id='4' style={{textDecoration:'none',color:'black'}} onClick={producto4} to='/productos/4'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} carrito={contador4}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click id={'4'}/></div>
     },
@@ -133,7 +136,7 @@ const items =[
     cantidad:1,
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='5' onClick={producto5} to='/productos/5'>Mas detalles</Link>,
+    link:<Link id='5' style={{textDecoration:'none',color:'black'}} onClick={producto5} to='/productos/5'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} carrito={contador5}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click id={'5'}/></div>
     },
@@ -144,7 +147,7 @@ const items =[
     cantidad:1,
     imagen:OldSchool,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='6' onClick={producto6} to='/productos/6'>Mas detalles</Link>,
+    link:<Link id='6' style={{textDecoration:'none',color:'black'}} onClick={producto6} to='/productos/6'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} carrito={contador6}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click id={'6'}/></div>
     },
@@ -155,7 +158,7 @@ const items =[
     cantidad:1,
     imagen:TripleCheeseBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='7' onClick={producto7} to='/productos/7'>Mas detalles</Link>,
+    link:<Link id='7' style={{textDecoration:'none',color:'black'}} onClick={producto7} to='/productos/7'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} carrito={contador7}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click id={'7'}/></div>
     },
@@ -166,7 +169,7 @@ const items =[
     cantidad:1,
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='8' onClick={producto8} to='/productos/8'>Mas detalles</Link>,
+    link:<Link id='8' style={{textDecoration:'none',color:'black'}} onClick={producto8} to='/productos/8'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} carrito={contador8}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click id={'8'}/></div>
     },
@@ -177,7 +180,7 @@ const items =[
     cantidad:1,
     imagen:CheeseBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='9' onClick={producto9} to='/productos/9'>Mas detalles</Link>,
+    link:<Link id='9' style={{textDecoration:'none',color:'black'}} onClick={producto9} to='/productos/9'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} carrito={contador9}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click id={'9'}/></div>
     },
@@ -186,9 +189,9 @@ const items =[
     precio:550,
     categoria:'Vegano',
     cantidad:1,
-    imagen:CheeseBurger,
+    imagen:VeggieBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='10' onClick={producto10} to='/productos/10'>Mas detalles</Link>,
+    link:<Link id='10' style={{textDecoration:'none',color:'black'}} onClick={producto10} to='/productos/10'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} carrito={contador10}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click id={'10'}/></div>
     },
@@ -197,9 +200,9 @@ const items =[
     precio:550,
     categoria:'Vegano',
     cantidad:1,
-    imagen:CheeseBurger,
+    imagen:VeggieBurger,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='11' onClick={producto11} to='/productos/11'>Mas detalles</Link>,
+    link:<Link id='11' style={{textDecoration:'none',color:'black'}} onClick={producto11} to='/productos/11'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} carrito={contador11}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click id={'11'}/></div>
     },
@@ -208,9 +211,9 @@ const items =[
     precio:550,
     categoria:'Vegano',
     cantidad:1,
-    imagen:CheeseBurger,
+    imagen:VeggieBurger2,
     descripcion:'awkflawjfwakfwa',
-    link:<Link id='12' onClick={producto12} to='/productos/12'>Mas detalles</Link>,
+    link:<Link id='12' style={{textDecoration:'none',color:'black'}} onClick={producto12} to='/productos/12'>Mas detalles</Link>,
     Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador12}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'}/></div>
     }
@@ -219,7 +222,7 @@ const items =[
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount1')
   div.style.visibility=('visible')
-  },500)
+  },800)
   }
   function producto2(){
    setTimeout(()=>{
@@ -302,8 +305,9 @@ const task = new Promise ((resuelto)=>{
     setTimeout(()=>{
        resuelto(items.filter(carne=> carne.id===productosId))   
     
-    },500)
-    let boton=  document.getElementById('boton1')
+    },800)
+    
+    let boton= document.getElementById('boton1')
        boton.addEventListener('click',function(){
          let count = document.getElementById('contenedorcount1')
          count.style.visibility=('hidden')
@@ -470,10 +474,10 @@ else if (productosId === '12'){
     }),[])
     return (
         <div>
-          <div style={{backgroundColor:'black',display:'flex',justifyContent:'center',paddingTop:'5px'}}>
-            <Link style={{borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to="/productos/Carne">Hamburguesas</Link>
-            <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
-            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Cervezas</Link>
+          <div style={{backgroundColor:'rgba(237,176,38,255)',left:'30%',display:'flex',justifyContent:'center'}}>
+            <Link style={{borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}}  to="/productos/Carne">Hamburguesas</Link>
+            <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
+            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Cervezas</Link>
           </div>
              <ItemList listaItems={itemLista} /> 
           <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
