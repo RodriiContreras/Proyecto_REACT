@@ -2,11 +2,14 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import { Link,useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+import ItemNavBar from './ItemNavBar'
+import { Spinner } from 'react-bootstrap'
 
 function ItemDetailContainer() {
 
     const [listaCervezas, setlistaCervezas] = useState([])
     const {Id} =useParams()
+   
 
 const itemsId =new Promise((resuelto)=>{
   setTimeout(()=>{
@@ -19,7 +22,7 @@ resuelto(fetch('https://api.punkapi.com/v2/beers'
    const url = 'https://api.punkapi.com/v2/beers'
    resuelto(fetch('https://api.punkapi.com/v2/beers'))
  }
-},2000)
+},6000)
 })
     useEffect(() => { 
     const ObtenerItems =()=>{
