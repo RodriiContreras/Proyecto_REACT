@@ -4,6 +4,7 @@ import ImagenHome from './component/imagen/ImagenHome';
 import NavBar from './component/NavBar/NavBar';
 import ItemListContainer from './component/ItemListContainer';
 import Opacidad from './component/opacidad/Opacidad';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Finalizacion de  Seccion Home
 
 // ROUTE
@@ -22,6 +23,7 @@ import CartContextProvider from './component/Context/CartContext';
 import ProductContextProvider from './component/Context/ProductsContext';
 import Cart from './component/Cart/Cart';
 import ItemPortada from './component/Items/ItemPortada';
+import Sucursales from './component/Sucursales/Sucursales';
 // Finalizacion Fuentes,estilos, etc
 const Detail =()=>{
   return (
@@ -58,9 +60,10 @@ function App() {
                <ImagenHome greeting='Burger House'/>
                <Opacidad/>
                </Route>
-               
+               <Route exact path='/sucursales'>
+                 <Sucursales/>
+               </Route>
                <Route exact path='/productos' >
-            
                  <ItemListContainer/>
                </Route>
                <Route exact path="/productos/:productosId" >

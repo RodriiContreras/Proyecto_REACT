@@ -5,7 +5,7 @@ const ProductContextProvider = ({children}) =>{
      const [productos, setProductos] = useState([
 {
 id:'1',
-titulo:'Burger House',
+titulo:'cheeseBurger',
 precio:650,
 categoria:'Carne',
 },

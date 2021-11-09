@@ -14,6 +14,8 @@ import OldSchool from './imagen/OldSchool.jpg'
 import TripleCheeseBurger from './imagen/TripleCheeseBurger.jpg'
 import VeggieBurger from './imagen/VeggieBurger.jpg'
 import VeggieBurger2 from './imagen/VeggieBurger2.png'  
+import { Spinner } from 'react-bootstrap'
+import wallpaper from './imagen/wallpaper.jpg'
 
 
 const contador= (cantidad) =>{
@@ -64,8 +66,6 @@ const {productos,setProductos} = useContext(ProductContext)
 
 
  const addToCart = ({id,carrito}) =>{
-const productoEncontrado = items.find(producto => producto.id === id)
-console.log(carrito)
 const productoContext = productos.find(item => item.id === id)
 console.log(productos)
 console.log(productoContext)
@@ -86,7 +86,7 @@ setItemCart([
 
 const items =[
     {id:'1',
-    titulo:'CheeseBurger',
+    titulo:'cheeseBurger',
     precio:650,
     categoria:'Carne',
     cantidad:1,
@@ -214,7 +214,7 @@ const items =[
     imagen:VeggieBurger2,
     descripcion:'awkflawjfwakfwa',
     link:<Link id='12' style={{textDecoration:'none',color:'black'}} onClick={producto12} to='/productos/12'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador12}/></div>,
+    Itemcount:<div style={{visibility:'hidden'}}  id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador12}/></div>,
     finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'}/></div>
     }
   ]
@@ -294,12 +294,13 @@ const items =[
 function ItemListContainer(props){
 
     const [itemLista, setListaItems] = useState([])
+    const [loading, setLoading] = useState(true)
 const {productosId} =useParams()
 const task = new Promise ((resuelto)=>{
   if (productosId === 'Carne'){
       setTimeout(()=>{
          resuelto(items.filter(carne=> carne.categoria===productosId))   
-      },500)
+      },800)
   }
  else if (productosId === '1'){
     setTimeout(()=>{
@@ -459,7 +460,10 @@ else if (productosId === '12'){
    },500)
  }
  else{
+  setTimeout(()=>{
    resuelto(items)
+   setLoading(false)
+  },6000)
  }
 },
     useEffect(() => {
@@ -479,7 +483,15 @@ else if (productosId === '12'){
             <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
             <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Cervezas</Link>
           </div>
-             <ItemList listaItems={itemLista} /> 
+            {loading && 
+            <div style={{position:'relative',left:'50%',top:'355px'}}> 
+            <Spinner sty animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            </div>}
+        
+             <ItemList listaItems={itemLista} />  
+          
           <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
          <div>    
               <ItemDetailContainer/>
