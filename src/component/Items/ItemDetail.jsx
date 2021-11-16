@@ -7,9 +7,13 @@ import { CartContext } from '../Context/CartContext'
 function ItemDetail({listaCervezas}) {
   
     const [cantidad, setCantidad] = useState(0)
+    const [boolean,setBoolean] = useState(true)
     const {setItemCart,itemCart} = useContext(CartContext)
     const cerveza = listaCervezas.find(cerveza => cerveza.name === 'Pilsen Lager')
 
+    const CambioEstado = ()=>{
+        setBoolean(false)
+    }
     const Contador= (cantidades) =>{
     setCantidad(cantidades)
     setItemCart(
@@ -27,8 +31,9 @@ function ItemDetail({listaCervezas}) {
                 <div><p> al precio de ${cervezas.boil_volume.value}</p></div>
                 <p style={{fontWeight:'bolder',fontSize:'10px'}}>{cervezas.description}</p>
                 <div style={{position:'relative',right:'5px',bottom:'20px'}}>
-                <Link to='/item/bebidas/cervezas'>Mas Detalles</Link>
+                 <Link onClick={CambioEstado} to='/item/bebidas/cervezas'>Mas Detalles</Link>
                 <ItemCount  stock={10} inicial={1} carrito={Contador}/>
+                
                 </div>
             </div>))}
        </div>

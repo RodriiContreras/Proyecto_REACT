@@ -1,5 +1,4 @@
 // Seccion Home
-import Logo from './component/imagen/logo2.png'
 import ImagenHome from './component/imagen/ImagenHome';
 import NavBar from './component/NavBar/NavBar';
 import ItemListContainer from './component/ItemListContainer';
@@ -8,21 +7,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Finalizacion de  Seccion Home
 
 // ROUTE
-import {BrowserRouter as Router,Switch,Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 // FINALIZACION DE ROUTE
 
 // Fuentes,estilos, etc
 import './App.css';
-import ItemCount from './component/ItemCount/ItemCount';
-import UseCartContext, { CartContext } from './component/Context/CartContext';
-import Item from './component/Items/Item';
-import ItemList from './component/Items/ItemList';
+import UseCartContext from './component/Context/CartContext';
 import ItemDetailContainer from './component/Items/ItemDetailContainer';
-import { useContext, useEffect ,useState} from 'react';
+import { useEffect } from 'react';
 import CartContextProvider from './component/Context/CartContext';
-import ProductContextProvider from './component/Context/ProductsContext';
 import Cart from './component/Cart/Cart';
-import ItemPortada from './component/Items/ItemPortada';
 import Sucursales from './component/Sucursales/Sucursales';
 // Finalizacion Fuentes,estilos, etc
 const Detail =()=>{
@@ -47,7 +41,6 @@ function App() {
   },[])
   return (
   <CartContextProvider >
-  <ProductContextProvider>
     <Router>
      <div className="App">
     
@@ -85,7 +78,6 @@ function App() {
 
       </div>
     </Router>
-    </ProductContextProvider>
     </CartContextProvider>
   );
 }

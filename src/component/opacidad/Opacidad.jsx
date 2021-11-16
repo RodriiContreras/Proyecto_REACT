@@ -8,8 +8,8 @@ function Opacidad() {
             top:'80px',
             opacity:'75%',
             backgroundColor:'black',
-            width:'99.14vw',
-            height:'91.8vh',
+            width:'100%',
+            height:'91.7vh',
 
             
             

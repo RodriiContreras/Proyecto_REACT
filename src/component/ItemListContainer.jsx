@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import {CartContext} from './Context/CartContext'
-import {ProductContext} from './Context/ProductsContext'
 import ItemCount from './ItemCount/ItemCount'
 import ItemList from './Items/ItemList'
 import {useEffect, useState} from 'react'
@@ -15,70 +14,32 @@ import TripleCheeseBurger from './imagen/TripleCheeseBurger.jpg'
 import VeggieBurger from './imagen/VeggieBurger.jpg'
 import VeggieBurger2 from './imagen/VeggieBurger2.png'  
 import { Spinner } from 'react-bootstrap'
-import wallpaper from './imagen/wallpaper.jpg'
 
 
-const contador= (cantidad) =>{
-    console.log('su cantidad de Burger House es ' + cantidad)
-}
-const contador2= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
-const contador3= (cantidad) =>{
-  console.log('su cantidad de Veggie Burger es ' + cantidad)
-}
-const contador4= (cantidad) =>{
-  console.log('su cantidad de Double Bacon es ' + cantidad)
-}
-const contador5= (cantidad) =>{
-  console.log('su cantidad de TapaArterias es ' + cantidad)
-}
-const contador6= (cantidad) =>{
-  console.log('su cantidad de Old School Burger es ' + cantidad)
-}
-const contador7= (cantidad) =>{
-  console.log('su cantidad de Triple CheeseBurger es ' + cantidad)
-}
-const contador8= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
-const contador9= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
-const contador10= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
-const contador11= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
-const contador12= (cantidad) =>{
-  console.log('su cantidad de CheeseBurger es ' + cantidad)
-}
+function ItemListContainer(props){
+  const [boolean, setBoolean] = useState(false)
+  const [count, setCount] = useState(0)
+function onAdd(cantidad){
+setCount(cantidad)
+setBoolean(true)
+console.log(cantidad)}
 
-
-
-
-
-function Click ({id}){  
-  
+function Click ({id,precio,titulo,imagen}){  
 const {setItemCart,itemCart} = useContext(CartContext)
-const {productos,setProductos} = useContext(ProductContext)
 
-
- const addToCart = ({id,carrito}) =>{
-const productoContext = productos.find(item => item.id === id)
-console.log(productos)
+ const addToCart =  ({id,precio,titulo,imagen}) =>{
+   setTimeout(() => {
+const productoContext = {item:{id,precio,titulo,imagen},quantity:count}
 console.log(productoContext)
-
-
 setItemCart([
   ...itemCart,
   productoContext,
 ])
+}, 200);
  }
   return(
       <div id='divLink'>
-      <Link  onClick={()=>addToCart({id})} style={{color:'black',textDecoration:'none'}}  to='/cart'>Finalizar Mi Pedido</Link>
+       {boolean && <Link  onClick={()=>addToCart({id,precio,titulo,imagen})} style={{color:'black',textDecoration:'none'}}  to='/cart'>Finalizar Mi Pedido</Link>}
       </div>
   )
    }
@@ -89,12 +50,11 @@ const items =[
     titulo:'cheeseBurger',
     precio:650,
     categoria:'Carne',
-    cantidad:1,
     imagen:CheeseBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='1' style={{textDecoration:'none',color:'black'}} onClick={producto1} to='/productos/1'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'><ItemCount id='boton1' stock={10} inicial={1} carrito={contador}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto1'><Click carrito={contador} id={'1'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'> <ItemCount id='boton1' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'visible'}} id='producto1'> <Click id={'1'} titulo={'cheeseBurger'} imagen ={CheeseBurger} precio={650}/></div>
   },
     {id:'2',
     titulo:'CheeseBurger',
@@ -102,10 +62,10 @@ const items =[
     categoria:'Carne',
     cantidad:1,
     imagen:TapaArterias,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='2' style={{textDecoration:'none',color:'black'}} onClick={producto2} to='/productos/2'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} carrito={contador2}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click id={'2'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click id={'2'} titulo={'cheeseBurger'} imagen ={TapaArterias} precio={550}/></div>
     },
     {id:'3',
     titulo:'Veggie Burger',
@@ -113,10 +73,10 @@ const items =[
     categoria:'Vegano',
     cantidad:1,
     imagen:VeganBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='3' style={{textDecoration:'none',color:'black'}} onClick={producto3} to='/productos/3'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} carrito={contador3}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click id={'3'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click id={'3'} titulo={'Veggie Burger'} imagen ={TapaArterias} precio={550}/></div>
     },
     {id:'4',
     titulo:'Double Bacon',
@@ -124,10 +84,10 @@ const items =[
     categoria:'Carne',
     cantidad:1,
     imagen:Bacon,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='4' style={{textDecoration:'none',color:'black'}} onClick={producto4} to='/productos/4'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} carrito={contador4}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click id={'4'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click id={'4'} titulo={'Double Bacon'} imagen ={Bacon} precio={550}/></div>
     },
     {id:'5',
     titulo:'Tapa Arterias',
@@ -135,10 +95,10 @@ const items =[
     categoria:'Carne',
     cantidad:1,
     imagen:CheeseBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='5' style={{textDecoration:'none',color:'black'}} onClick={producto5} to='/productos/5'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} carrito={contador5}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click id={'5'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click id={'5'} titulo={'Tapa Arterias'} imagen ={TapaArterias} precio={550}/></div>
     },
     {id:'6',
     titulo:'Old School Burger',
@@ -146,10 +106,10 @@ const items =[
     categoria:'Carne',
     cantidad:1,
     imagen:OldSchool,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='6' style={{textDecoration:'none',color:'black'}} onClick={producto6} to='/productos/6'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} carrito={contador6}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click id={'6'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click id={'6'} titulo={'Old School Burger'} imagen ={TapaArterias} precio={550}/></div>
     },
     {id:'7',
     titulo:'Triple CheeseBurger',
@@ -157,54 +117,51 @@ const items =[
     categoria:'Carne',
     cantidad:1,
     imagen:TripleCheeseBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='7' style={{textDecoration:'none',color:'black'}} onClick={producto7} to='/productos/7'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} carrito={contador7}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click id={'7'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click id={'7'} titulo={'Triple CheeseBurger'} imagen ={TripleCheeseBurger} precio={550}/></div>
     },
     {id:'8',
     titulo:'Old School Burger',
     precio:550,
     categoria:'Carne',
     cantidad:1,
-    imagen:CheeseBurger,
-    descripcion:'awkflawjfwakfwa',
+    imagen:TripleCheeseBurger,
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='8' style={{textDecoration:'none',color:'black'}} onClick={producto8} to='/productos/8'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} carrito={contador8}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click id={'8'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click id={'8'} titulo={'Old School Burger'} imagen ={TripleCheeseBurger} precio={550}/></div>
     },
     {id:'9',
     titulo:'Double Bacon',
     precio:550,
     categoria:'Carne',
-    cantidad:1,
     imagen:CheeseBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='9' style={{textDecoration:'none',color:'black'}} onClick={producto9} to='/productos/9'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} carrito={contador9}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click id={'9'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click id={'9'} titulo={'Double Bacon'} imagen ={CheeseBurger} precio={550}/></div>
     },
     {id:'10',
     titulo:'Veggie Burger',
     precio:550,
     categoria:'Vegano',
-    cantidad:1,
     imagen:VeggieBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='10' style={{textDecoration:'none',color:'black'}} onClick={producto10} to='/productos/10'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} carrito={contador10}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click id={'10'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click id={'10'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/></div>
     },
     {id:'11',
     titulo:'Veggie Burger',
     precio:550,
     categoria:'Vegano',
-    cantidad:1,
     imagen:VeggieBurger,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='11' style={{textDecoration:'none',color:'black'}} onClick={producto11} to='/productos/11'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} carrito={contador11}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click id={'11'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click id={'11'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/></div>
     },
     {id:'12',
     titulo:'Veggie Burger',
@@ -212,10 +169,10 @@ const items =[
     categoria:'Vegano',
     cantidad:1,
     imagen:VeggieBurger2,
-    descripcion:'awkflawjfwakfwa',
+    descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='12' style={{textDecoration:'none',color:'black'}} onClick={producto12} to='/productos/12'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}}  id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} carrito={contador12}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'}/></div>
+    Itemcount:<div style={{visibility:'hidden'}}  id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'} titulo={'Veggie Burger'} imagen ={VeggieBurger2} precio={550}/></div>
     }
   ]
   function producto1(){
@@ -291,7 +248,6 @@ const items =[
    },800)
    }
 
-function ItemListContainer(props){
 
     const [itemLista, setListaItems] = useState([])
     const [loading, setLoading] = useState(true)
@@ -312,8 +268,6 @@ const task = new Promise ((resuelto)=>{
        boton.addEventListener('click',function(){
          let count = document.getElementById('contenedorcount1')
          count.style.visibility=('hidden')
-         let finalizar = document.getElementById('producto1')
-         finalizar.style.visibility=('visible')
        })
 }
 else if (productosId === '2'){
@@ -484,12 +438,11 @@ else if (productosId === '12'){
             <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Cervezas</Link>
           </div>
             {loading && 
-            <div style={{position:'relative',left:'50%',top:'355px'}}> 
-            <Spinner sty animation="border" role="status">
+            <div style={{position:'relative',width:'20px',left:'50%',top:'355px'}}> 
+            <Spinner animation="border" role="status">
               <span className="visually-hidden">Loading...</span>
             </Spinner>
             </div>}
-        
              <ItemList listaItems={itemLista} />  
           
           <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
