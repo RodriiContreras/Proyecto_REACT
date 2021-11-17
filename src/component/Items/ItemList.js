@@ -5,7 +5,7 @@ import wallpaper from '../imagen/wallpaper.jpg'
     return(
         <div style={{backgroundImage:`url(${wallpaper})`}}>
             <div style={{display:'flex',textDecoration:'none',width:'1200px',position:'relative',left:'17%',flexWrap:'wrap',justifyContent:'space-evenly'}}>
-           {listaItems.map(items=><Item finalizar={items.finalizar} descripcion={items.descripcion} Itemcount={items.Itemcount} ruta={items.link} imagen={items.imagen} nombreItem={items.titulo} precioItem={items.precio} idItem={items.id}/>)}
+           {listaItems.map(items=><Item key={items.key} finalizar={items.finalizar} descripcion={items.descripcion} Itemcount={items.Itemcount} ruta={items.link} imagen={items.imagen} nombreItem={items.titulo} precioItem={items.precio} idItem={items.id}/>)}
            </div>
         </div>
     )

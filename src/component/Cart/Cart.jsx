@@ -1,30 +1,31 @@
 import React from 'react'
 import {useContext} from 'react'
 import { CartContext } from '../Context/CartContext'
+import {Table} from 'react-bootstrap'
 
 function Cart() {
     const {itemCart}  = useContext(CartContext)
     console.log(itemCart)
     return (
         <div>
-            <h1> Su Carrito</h1>
-            {itemCart.length !== 0 && itemCart.map(item =>
-<div 
-    style={
-    {paddingTop:'5px',
-    marginTop:'5px',
-    textAlign:'center',
-    height:'450px',
-    width:'255px',
-    boxShadow:' rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',borderRadius:'2%',backgroundColor:'#f0e9e9'}}>
-<img alt='imagen de hamburguesas' style={{width:'220px',height:'150px'}} src={item.item.imagen} />
+   <div style={{width:'100%',textAlign:'center',backgroundColor:'black'}}><h1 style={{color:'white'}}> Su Carrito</h1></div>
 
-<h1 style={{fontSize:'20px'}}>{item.item.titulo}</h1>
-<p>{item.item.descripcion}</p>
-<p> al precio de : ${item.item.precio}</p>
-<p>Cantidad : {item.quantity}</p>
-</div>)}
-              {itemCart.length === 0 && <p>no hay producto :S</p>}
+ {itemCart.length !== 0 && itemCart.map(item => 
+  <Table striped bordered hover>
+                <tbody> 
+                    
+    <tr>
+      <td>{item.item.titulo}</td>
+      <td> {item.quantity || item.newQuantity}</td>
+      { item.quantity <10 && <td>{item.item.precio * item.quantity}</td>}
+      { item.newQuantity >10 && <td>{item.item.precio * item.newQuantity}</td> }
+      
+    </tr>
+                </tbody> 
+                </Table>
+
+)}
+              {itemCart.length === 0 && <p>Actuamente No hay Productos en su carrito</p>}
         </div>
     )
 }
