@@ -10,21 +10,28 @@ function Cart() {
         <div>
    <div style={{width:'100%',textAlign:'center',backgroundColor:'black'}}><h1 style={{color:'white'}}> Su Carrito</h1></div>
 
- {itemCart.length !== 0 && itemCart.map(item => 
-  <Table striped bordered hover>
+{itemCart.length !== 0 &&
+<Table striped bordered hover>
+<tr>
+      <th>Nombre Del Producto</th>
+      <th>Cantidad</th>
+      <th>Precio total</th>
+</tr>
+
+ {itemCart.map(item => 
                 <tbody> 
                     
     <tr>
       <td>{item.item.titulo}</td>
       <td> {item.quantity || item.newQuantity}</td>
       { item.quantity <10 && <td>{item.item.precio * item.quantity}</td>}
+      { item.quantity ===10 && <td>{item.item.precio * item.quantity}</td>}
       { item.newQuantity >10 && <td>{item.item.precio * item.newQuantity}</td> }
-      
     </tr>
                 </tbody> 
-                </Table>
-
 )}
+</Table>
+}
               {itemCart.length === 0 && <p>Actuamente No hay Productos en su carrito</p>}
         </div>
     )
