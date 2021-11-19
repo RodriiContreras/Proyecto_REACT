@@ -14,6 +14,7 @@ import TripleCheeseBurger from './imagen/TripleCheeseBurger.jpg'
 import VeggieBurger from './imagen/VeggieBurger.jpg'
 import VeggieBurger2 from './imagen/VeggieBurger2.png'  
 import { Spinner } from 'react-bootstrap'
+import Footer from './Footer/Footer'
 
 
 function ItemListContainer(props){
@@ -449,7 +450,7 @@ else if (productosId === '12'){
           <div style={{backgroundColor:'rgba(237,176,38,255)',left:'30%',display:'flex',justifyContent:'center'}}>
             <Link style={{borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}}  to="/productos/Carne">Hamburguesas</Link>
             <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
-            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Cervezas</Link>
+            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Bebidas</Link>
           </div>
             {loading && 
             <div style={{position:'relative',width:'20px',left:'50%',top:'355px'}}> 
@@ -463,6 +464,11 @@ else if (productosId === '12'){
          <div>    
               <ItemDetailContainer/>
           </div>
+          {!loading && 
+          <div>
+        <Footer/>
+          </div>
+          }
         </div>
 
     )

@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import CartContextProvider from './component/Context/CartContext';
 import Cart from './component/Cart/Cart';
 import Sucursales from './component/Sucursales/Sucursales';
+import Footer from './component/Footer/Footer';
 // Finalizacion Fuentes,estilos, etc
 const Detail =()=>{
   return (
@@ -52,7 +53,7 @@ function App() {
             <Route exact path='/'>
                <ImagenHome greeting='Burger House'/>
                <Opacidad/>
-               </Route>
+            </Route>
                <Route exact path='/sucursales'>
                  <Sucursales/>
                </Route>
