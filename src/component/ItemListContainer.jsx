@@ -444,7 +444,7 @@ else if (productosId === '12'){
         .catch(err=>{console.log('alto error')}) 
 
         
-    }),[])
+    }),[productosId])
     return (
         <div>
           <div style={{backgroundColor:'rgba(237,176,38,255)',left:'30%',display:'flex',justifyContent:'center'}}>

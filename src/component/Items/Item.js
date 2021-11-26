@@ -2,7 +2,7 @@ import React from 'react'
 
 function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem}){
     return (
-        <div style={{paddingTop:'5px',marginTop:'5px',marginLeft:'20px',textAlign:'center',height:'500px',width:'255px',boxShadow:' rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',borderRadius:'2%',backgroundColor:'#f0e9e9'}}>
+        <div style={{paddingTop:'5px',marginTop:'5px',marginLeft:'20px',textAlign:'center',height:'500px',width:'255px',borderRadius:'2%',backgroundColor:'#f0e9e9'}}>
         <div>
             <img style={{width:'220px',height:'150px'}} src={imagen}></img>
         </div>
