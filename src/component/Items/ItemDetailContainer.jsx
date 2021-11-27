@@ -19,6 +19,7 @@ const itemsId =new Promise((resuelto)=>{
 if(Id === 'cerveza1'){
   const db = getFireDb()//inicializo firebase en mi proyecto y llamo a  mi "base de datos"
   const coleccion = collection(db,'cervezas')
+  
   const interpretarColeccion = getDocs(coleccion)
 resuelto(interpretarColeccion)
 }
@@ -36,9 +37,10 @@ useEffect(() => {
    return itemsId
     }
    ObtenerItems()
- .then(data=> data.docs.map(data => setlistaCervezas([{...data.data()}])))
+// .then(data => console.log(data.docs.map(data=> ([{...data.data()}]))))
+  .then(data=> data.docs.map(data => setlistaCervezas([{...data.data()}])))
+  .then(console.log(listaCervezas))
 },  [])
-console.log(listaCervezas)
    return (
         <div  style={{backgroundColor:'rgb(237, 235, 235)',width:'100%'}}>
       <ItemDetail  listaCervezas={listaCervezas}/>
