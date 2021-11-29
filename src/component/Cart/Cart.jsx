@@ -2,8 +2,8 @@ import React from 'react'
 import {useContext,useState} from 'react'
 import { CartContext } from '../Context/CartContext'
 import {getFireDb} from '../Firebase/firebase'
+import { collection,addDoc } from 'firebase/firestore/lite'
 import {Table,Button,Form} from 'react-bootstrap'
-import { collection, doc,setDoc } from 'firebase/firestore/lite'
 
 function Cart() {
   const [buyer, setBuyer] = useState(initialState)
@@ -14,20 +14,31 @@ function Cart() {
        [evt.target.name]:evt.target.value // toma los valores que se Tipean en los input 
      }
    )
+   
  }
 
  const handlerSubmit = async (evt) =>{
-  const order = {buyer,item:{itemCart}}
-   evt.preventDefault()
+  evt.preventDefault()
+  const fechaPedido = new Date()
+  const order = {buyer,item:{itemCart},date:{fechaPedido}}
+  totalPrice()
+  if (buyer.email === buyer.email2){
    const db = getFireDb()
-   const AñadiendoPedido = await setDoc(doc(db,'pedidos','pedido'),{
-     name:buyer.name,
-     phone:buyer.phone,
-     email:buyer.email
+   const colleccion = addDoc(collection(db,'pedidos'),{
+  order:order
    })
-  console.log(AñadiendoPedido)
+   .then(resp => console.log(resp))
+  }
+  else{
+    console.log('los emails no son iguales')
+  }
  }
-  console.log(buyer)
+
+ function totalPrice(){
+    let total =  itemCart.reduce((accum, valor) =>(accum + (valor.quantity* valor.item.precio)),0)
+    const div = document.getElementById('totalPrice')
+    div.textContent = 'El precio TOTAL de su carrito es de:  $' + total
+  }
 
     const {itemCart}  = useContext(CartContext)
     console.log(itemCart)
@@ -40,7 +51,7 @@ function Cart() {
 <tr>
       <th>Nombre Del Producto</th>
       <th>Cantidad</th>
-      <th>Precio total</th>
+      <th>Precio</th>
 </tr>
 
  {itemCart.map(item => 
@@ -58,13 +69,14 @@ function Cart() {
 
 
 )}
+<p id='totalPrice'></p>
 </Table>
 }
-{/* {itemCart.length !==0 && */}
+ {itemCart.length !==0 && 
 <Form 
   style={{
     width:'500px'
-    ,border:'2px solid blue'
+    ,border:'2px solid black'
     ,borderRadius:'1%'
     ,textAlign:'center'
     ,fontFamily:'Raleway, sans-serif'
@@ -77,27 +89,31 @@ function Cart() {
   <div><h1>Formulario de Contacto</h1></div>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Ingrese su Nombre</Form.Label>
-    <Form.Control type="text" name='name' value={buyer.name} placeholder="Ingrese su nombre" />
+    <Form.Control type="text" name='name' value={buyer.name} placeholder="Ingrese su Nombre" required/>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Ingrese su numero de telefono</Form.Label>
-    <Form.Control type="number" name='phone' value={buyer.phone} placeholder="Numero de Telefono" />
+    <Form.Control type="number" name='phone' value={buyer.phone} placeholder="Numero de Telefono" required/>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Ingrese su E-mail</Form.Label>
-    <Form.Control type="text" name='email' value={buyer.email} placeholder="Ingrese su Email" />
+    <Form.Control type="email" name='email' value={buyer.email} placeholder="Ingrese su Email"  required/>
   </Form.Group>
 
-  <Button variant="primary" type="submit" style={{width:'100%'}}>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Escriba nuevamente su E-mail</Form.Label>
+    <Form.Control type="email" name='email2' value={buyer.email2} placeholder="Ingrese su Email"  required/>
+  </Form.Group>
+
+  <Button variant="warning" type="submit" style={{width:'100%',borderTop:'1px solid black'}}>
     Enviar Mi Pedido!
   </Button>
 </Form>
+} 
 
-{/* } */}
-
-              {itemCart.length === 0 && <p style={{fontFamily:'Raleway, sans-serif'}}>Actuamente No hay Productos en su carrito</p>}
+              {itemCart.length === 0 && <p style={{fontFamily:'Raleway, sans-serif'}}>Actualmente No hay Productos en su Carrito</p>}
         </div>
     )
 }
@@ -107,5 +123,6 @@ export default Cart
 const initialState = {
   name:'',
   phone:'',
-  email:''
+  email:'',
+  email2:''
 }
