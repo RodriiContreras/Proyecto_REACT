@@ -1,0 +1,58 @@
+#listcontainer_containerflex{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+#link_hamburguesas{
+    border-radius: 2%;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-family:Raleway, sans-serif;
+}
+#link_hamburguesas:hover{
+    transition: .7s;
+    color: rgb(255, 208, 0);
+}
+#link_veganas{
+    position: relative;
+    left: 40px;
+    border-radius: 2%;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-family:Raleway, sans-serif;
+}
+#link_veganas:hover{
+    transition: .7s;
+    color: rgb(255, 208, 0);
+}
+#link_bebidas{
+    font-size: 30px;
+    position: relative;
+    left: 80px;
+    text-decoration: none;
+    color: white;
+    font-family:Raleway, sans-serif;
+}
+#link_bebidas:hover{
+    color: rgb(255, 208, 0);
+}
+
+
+@media only screen and (max-width: 575px){
+    #listcontainer_containerflex{
+        display: block;
+    }
+    #link_hamburguesas{
+        font-size: 20px;
+
+    }
+    #link_veganas{
+       font-size: 20px;
+    }
+    #link_bebidas{
+        font-size: 20px;
+    }
+
+}

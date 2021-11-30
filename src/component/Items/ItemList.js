@@ -1,10 +1,10 @@
 import React from 'react'
 import Item from './Item'
-import wallpaper from '../imagen/wallpaper.jpg'
+import './ItemList.css'
  function ItemList({listaItems}) {
     return(
-        <div style={{backgroundImage:`url(${wallpaper})`}}>
-            <div style={{display:'flex',textDecoration:'none',width:'1200px',position:'relative',left:'17%',flexWrap:'wrap',justifyContent:'space-evenly'}}>
+        <div id='listcontainer_items'>
+            <div id='flexcontainer_items'>
            {listaItems.map(items=><Item key={items.key} finalizar={items.finalizar} descripcion={items.descripcion} Itemcount={items.Itemcount} ruta={items.link} imagen={items.imagen} nombreItem={items.titulo} precioItem={items.precio} idItem={items.id}/>)}
            </div>
         </div>

@@ -15,6 +15,7 @@ import VeggieBurger from './imagen/VeggieBurger.jpg'
 import VeggieBurger2 from './imagen/VeggieBurger2.png'  
 import { Spinner } from 'react-bootstrap'
 import Footer from './Footer/Footer'
+import './ItemListContainer.css'
 
 
 function ItemListContainer(props){
@@ -447,11 +448,13 @@ else if (productosId === '12'){
     }),[productosId])
     return (
         <div>
-          <div style={{backgroundColor:'black',display:'flex',justifyContent:'center'}}>
-            <Link style={{borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}}  to="/productos/Carne">Hamburguesas</Link>
-            <Link style={{position:'relative',left:'40px',borderRadius:'2%',fontSize:'30px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to="/productos/Vegano">Hamburguesas Veganas</Link>
-            <Link style={{fontSize:'30px',position:'relative',left:'80px',textDecoration:'none',color:'white', fontFamily:'Raleway, sans-serif'}} to='/item/bebidas/'>Bebidas</Link>
+          {!loading && 
+          <div id='listcontainer_containerflex'>
+            <Link id='link_hamburguesas'  to="/productos/Carne">Hamburguesas</Link>
+            <Link id='link_veganas' to="/productos/Vegano">Hamburguesas Veganas</Link>
+            <Link id='link_bebidas' to='/item/bebidas/'>Bebidas</Link>
           </div>
+          }
             {loading && 
             <div style={{position:'relative',width:'20px',left:'50%',top:'355px'}}> 
             <Spinner animation="border" role="status">
