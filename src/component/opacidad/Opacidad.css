@@ -1,0 +1,18 @@
+#contenedor_oopacidad{
+    position: absolute;
+    z-index: +4000;
+    top: 80px;
+    opacity: 75%;
+    background-color: black;
+    width: 100%;
+    height: 91.7vh;
+}
+
+@media only screen and (max-width: 575px){
+    #contenedor_oopacidad{
+        width: 100%;
+        top: 120px;
+        height: 91.7vh;
+    }
+
+}

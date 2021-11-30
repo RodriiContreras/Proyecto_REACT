@@ -2,22 +2,15 @@ import {NavLink} from 'react-router-dom'
 import React from 'react'
 import CartWidget from '../CartWidget'
 import Logo from '../imagen/logo2.png'
-
+import './NavBar.css'
 function NavBar() {
     return (
-<nav style={{height:'80px'}}>
-        <div style={{
-          display:'flex',
-          width:'100%',
-          backgroundColor:'rgba(237,176,38,255)',
-          height:'80px',
-          margin:0,
-          justifyContent:'center' 
-          }}>
-            <NavLink to='/'><img style={{position:'absolute',width:'70px',left:'40px'}} src={Logo}></img></NavLink>
-            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/productos">Productos</NavLink>
-            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/sucursales">Sucursales</NavLink>
-            <NavLink style={{paddingRight:'50px',fontSize:'25px',paddingTop:'20px',textDecoration:'none',color:'black', fontFamily:'Raleway, sans-serif'}} to="/contactanos">Contactanos</NavLink>
+<nav id='navbar_nav'>
+        <div id='navbar_contenedorflex'>
+            <NavLink  to='/'><img  id='navbar_logo' src={Logo}></img></NavLink>
+            <NavLink className='navbar_secciones' to="/productos">Productos</NavLink>
+            <NavLink className='navbar_secciones' to="/sucursales">Sucursales</NavLink>
+            <NavLink className='navbar_secciones' to="/contactanos">Contactanos</NavLink>
         </div>
         <CartWidget/>
 

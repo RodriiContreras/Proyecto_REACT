@@ -1,0 +1,47 @@
+#navbar_nav{
+    height: 80px;
+}
+#navbar_contenedorflex{
+    display: flex;
+    width: 100%;
+    background-color: rgba(237,176,38,255);
+    height: 80px;
+    margin: 0;
+    justify-content: center;
+}
+#navbar_logo{
+    position: absolute;
+    width: 70px;
+    left: 40px;
+}
+.navbar_secciones{
+    padding-right: 50px;
+    font-size: 25px;
+    padding-top: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: Raleway, sans-serif;
+}
+.navbar_secciones:hover{
+    transition: .5s;
+    color: white;
+}
+
+@media only screen and (max-width: 575px){
+#navbar_nav{
+    height: 120px;
+}
+#navbar_logo{
+    width: 60px;
+    left: 35%;
+}
+#navbar_contenedorflex{
+    display: flex;
+    height: 120px;
+}
+.navbar_secciones{
+    padding-top: 70px;
+    padding-right: 40px;
+}
+
+}

@@ -1,0 +1,14 @@
+#home_logo{
+    position: absolute;
+    width: 220px;
+    top: 130px;
+    left: 43%;
+    z-index: +4001;
+}
+
+
+@media only screen and (max-width: 575px){
+    #home_logo{
+        left: 30%;
+    }
+}
