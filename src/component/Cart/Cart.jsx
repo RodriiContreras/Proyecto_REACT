@@ -20,8 +20,9 @@ function Cart() {
  const handlerSubmit = async (evt) =>{
   evt.preventDefault()
   const fechaPedido = new Date()
-  const order = {buyer,item:{itemCart},date:{fechaPedido}}
-  totalPrice()
+  const precioTotal = totalPrice()
+  const order = {buyer,item:{itemCart},date:{fechaPedido},total:{precioTotal}}
+  console.log(precioTotal)
   if (buyer.email === buyer.email2){
    const db = getFireDb()
    const colleccion = addDoc(collection(db,'pedidos'),{
@@ -38,7 +39,11 @@ function Cart() {
     let total =  itemCart.reduce((accum, valor) =>(accum + (valor.quantity* valor.item.precio)),0)
     const div = document.getElementById('totalPrice')
     div.textContent = 'El precio TOTAL de su carrito es de:  $' + total
+
+    return total
   }
+
+
 
     const {itemCart}  = useContext(CartContext)
     console.log(itemCart)
@@ -69,7 +74,7 @@ function Cart() {
 
 
 )}
-<p id='totalPrice'></p>
+<p style={{position:'relative',top:'2px'}} id='totalPrice'></p>
 </Table>
 }
  {itemCart.length !==0 && 
