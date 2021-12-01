@@ -4,6 +4,7 @@ import { CartContext } from '../Context/CartContext'
 import {getFireDb} from '../Firebase/firebase'
 import { collection,addDoc } from 'firebase/firestore/lite'
 import {Table,Button,Form} from 'react-bootstrap'
+import './Cart.css'
 
 function Cart() {
   const [buyer, setBuyer] = useState(initialState)
@@ -74,20 +75,11 @@ function Cart() {
 
 
 )}
-<p style={{position:'relative',top:'2px'}} id='totalPrice'></p>
 </Table>
 }
+<p style={{position:'relative',top:'2px'}} id='totalPrice'></p>
  {itemCart.length !==0 && 
-<Form 
-  style={{
-    width:'500px'
-    ,border:'2px solid black'
-    ,borderRadius:'1%'
-    ,textAlign:'center'
-    ,fontFamily:'Raleway, sans-serif'
-    ,position:'relative',
-    left:'36%'
-  }} 
+<Form id='cart_form'
   onSubmit={handlerSubmit}
   onChange={handlerChange}
  >

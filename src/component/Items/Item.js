@@ -1,9 +1,9 @@
 import React from 'react'
 import './Item.css'
 
-function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem}){
+function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem,paramsId,idalmacenador}){
     return (
-        <div id='item_cardcontainer'>
+        <div id='item_cardcontainer' >
         <div>
             <img style={{width:'220px',height:'150px'}} src={imagen}></img>
         </div>
@@ -20,7 +20,7 @@ function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem
           <div>
            {ruta}
           </div>
-          <div>
+          <div id='item_itemcount'>
               {Itemcount}
           </div>
           <div style={{fontFamily:'Raleway, sans-serif'}}>

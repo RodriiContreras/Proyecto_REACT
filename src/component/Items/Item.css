@@ -10,7 +10,9 @@
 }
 
 
-
+#descripcion{
+    font-size: 16px;
+}
 
 
 @media only screen and (max-width: 575px){
@@ -18,4 +20,13 @@
         height: 450px;
         width: 230px;
     }
+    #descripcion{
+        font-size: 13px;
+    }
+    #item_itemcount{
+        position: relative;
+        right: 15px;
+        bottom: 20px;
+    }
+    
 }
