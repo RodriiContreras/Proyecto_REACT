@@ -191,73 +191,103 @@ const items =[
     finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'} titulo={'Veggie Burger'} imagen ={VeggieBurger2} precio={550}/></div>
     }
   ]
+  const [idalmacenador, setIdalmacenador] = useState()
   function producto1(){
+    let id = '1' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount1')
   div.style.visibility=('visible')
+
   },800)
+  
   }
   function producto2(){
+    let id = '2' 
+    setIdalmacenador(id)
    setTimeout(()=>{
+
   let div =document.getElementById('contenedorcount2')
   div.style.visibility=('visible')
   },800)
   }
   function producto3(){
+    let id = '3' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount3')
    div.style.visibility=('visible')
    },800)
    }
    function producto4(){
+    let id = '4' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount4')
    div.style.visibility=('visible')
    },800)
    }
    function producto5(){
+    let id = '5' 
+    setIdalmacenador(id)
     setTimeout(()=>{
+
    let div =document.getElementById('contenedorcount5')
    div.style.visibility=('visible')
    },800)
    }
    function producto6(){
+    let id = '6' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount6')
    div.style.visibility=('visible')
    },800)
    }
    function producto7(){
+    let id = '7' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount7')
    div.style.visibility=('visible')
    },800)
    }
    function producto8(){
+    let id = '8' 
+    setIdalmacenador(id)
     setTimeout(()=>{
+
    let div =document.getElementById('contenedorcount8')
    div.style.visibility=('visible')
    },800)
    }
    function producto9(){
+    let id = '9' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount9')
    div.style.visibility=('visible')
    },800)
    }
    function producto10(){
+    let id = '10' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount10')
    div.style.visibility=('visible')
    },800)
    }
    function producto11(){
+    let id = '11' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount11')
    div.style.visibility=('visible')
    },800)
    }
    function producto12(){
+    let id = '12' 
+    setIdalmacenador(id)
     setTimeout(()=>{
    let div =document.getElementById('contenedorcount12')
    div.style.visibility=('visible')
@@ -272,13 +302,13 @@ const task = new Promise ((resuelto)=>{
   if (productosId === 'Carne'){
       setTimeout(()=>{
          resuelto(items.filter(carne=> carne.categoria===productosId))   
-      },800)
+      },200)
   }
  else if (productosId === '1'){
     setTimeout(()=>{
        resuelto(items.filter(carne=> carne.id===productosId))   
     
-    },800)
+    },200)
     
      let boton= document.getElementById('boton1')
         boton.addEventListener('click',function(){
@@ -289,7 +319,7 @@ const task = new Promise ((resuelto)=>{
 else if (productosId === '2'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton1=  document.getElementById('boton2')
   boton1.addEventListener('click',function(){
     let count1 = document.getElementById('contenedorcount2')
@@ -302,7 +332,7 @@ else if (productosId === '2'){
 else if (productosId === '3'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton3=  document.getElementById('boton3')
   boton3.addEventListener('click',function(){
     let count3 = document.getElementById('contenedorcount3')
@@ -315,7 +345,7 @@ else if (productosId === '3'){
 else if (productosId === '4'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton4=  document.getElementById('boton4')
   boton4.addEventListener('click',function(){
     let count4 = document.getElementById('contenedorcount4')
@@ -327,7 +357,7 @@ else if (productosId === '4'){
 else if (productosId === '5'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton5=  document.getElementById('boton5')
   boton5.addEventListener('click',function(){
     let count5 = document.getElementById('contenedorcount5')
@@ -339,7 +369,7 @@ else if (productosId === '5'){
 else if (productosId === '6'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton6=  document.getElementById('boton6')
   boton6.addEventListener('click',function(){
     let count6 = document.getElementById('contenedorcount6')
@@ -351,7 +381,7 @@ else if (productosId === '6'){
 else if (productosId === '7'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton7=  document.getElementById('boton7')
   boton7.addEventListener('click',function(){
     let count7 = document.getElementById('contenedorcount7')
@@ -363,7 +393,7 @@ else if (productosId === '7'){
 else if (productosId === '8'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton8=  document.getElementById('boton8')
   boton8.addEventListener('click',function(){
     let count8 = document.getElementById('contenedorcount8')
@@ -375,7 +405,7 @@ else if (productosId === '8'){
 else if (productosId === '9'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton9=  document.getElementById('boton9')
   boton9.addEventListener('click',function(){
     let count9 = document.getElementById('contenedorcount8')
@@ -387,7 +417,7 @@ else if (productosId === '9'){
 else if (productosId === '10'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton10=  document.getElementById('boton10')
   boton10.addEventListener('click',function(){
     let count10 = document.getElementById('contenedorcount10')
@@ -399,7 +429,7 @@ else if (productosId === '10'){
 else if (productosId === '11'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton11=  document.getElementById('boton11')
   boton11.addEventListener('click',function(){
     let count11 = document.getElementById('contenedorcount11')
@@ -411,7 +441,7 @@ else if (productosId === '11'){
 else if (productosId === '12'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
-  },500)
+  },200)
   let boton12=  document.getElementById('boton12')
   boton12.addEventListener('click',function(){
     let count12 = document.getElementById('contenedorcount12')
@@ -427,7 +457,7 @@ else if (productosId === '12'){
    setTimeout(()=>{
     
    resuelto(items.filter(vegano=> vegano.categoria===productosId)) 
-   },500)
+   },200)
  }
  else{
   setTimeout(()=>{
@@ -445,13 +475,13 @@ else if (productosId === '12'){
         .catch(err=>{console.log('alto error')}) 
 
         
-    }),[productosId])
+    }),[itemLista])
     return (
         <div>
           {!loading && 
           <div id='listcontainer_containerflex'>
             <Link id='link_hamburguesas'  to="/productos/Carne">Hamburguesas</Link>
-            <Link id='link_veganas' to="/productos/Vegano">Hamburguesas Veganas</Link>
+            <Link id='link_veganas'  to="/productos/Vegano">Hamburguesas Veganas</Link>
             <Link id='link_bebidas' to='/item/bebidas/'>Bebidas</Link>
           </div>
           }
@@ -461,12 +491,9 @@ else if (productosId === '12'){
               <span className="visually-hidden">Loading...</span>
             </Spinner>
             </div>}
-             <ItemList listaItems={itemLista} />  
+             <ItemList idalmacenador={idalmacenador} loading = {loading} paramsId={productosId}  listaItems={itemLista} />  
           
           <h1 style={{position:'absolute',top:'350px',left:'35%',fontSize:'85px',color:'rgba(237,176,38,255)',zIndex:'+4100',fontFamily:'Raleway, sans-serif'}}>{props.greeting}</h1>
-         <div>    
-              <ItemDetailContainer/>
-          </div>
           {!loading && 
           <div>
         <Footer/>

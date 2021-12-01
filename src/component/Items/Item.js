@@ -1,8 +1,9 @@
 import React from 'react'
+import './Item.css'
 
 function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem}){
     return (
-        <div style={{paddingTop:'5px',marginTop:'5px',marginLeft:'20px',textAlign:'center',height:'500px',width:'255px',borderRadius:'2%',backgroundColor:'#f0e9e9'}}>
+        <div id='item_cardcontainer'>
         <div>
             <img style={{width:'220px',height:'150px'}} src={imagen}></img>
         </div>

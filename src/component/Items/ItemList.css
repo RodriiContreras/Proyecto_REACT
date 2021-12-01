@@ -11,14 +11,18 @@ flex-wrap: wrap;
 justify-content: space-evenly;
 }
 
+
 @media only screen and (max-width: 575px){
     #listcontainer_items{
         width: 100%;
         margin:0
     }
+    
     #flexcontainer_items{
-        display: block;
-        left: 12%;
-        width: 50%;
+        display: flex;
+        justify-content:start;
+        flex-wrap: wrap;
+        left: 0;
+        width: 100%;
     }
 }
