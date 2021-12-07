@@ -54,24 +54,40 @@ function App() {
                <ImagenHome greeting='Burger House'/>
                <Opacidad/>
             </Route>
+
                <Route exact path='/sucursales'>
                  <Sucursales/>
                </Route>
+
                <Route exact path='/productos' >
                  <ItemListContainer/>
                </Route>
+
                <Route exact path="/productos/:productosId" >
                  <ItemListContainer/>
                </Route>
+
                <Route exact path="/productos/:Id" >
                  <ItemListContainer/>
                </Route>
+
                <Route exact path="/item/bebidas/" >
                  <ItemDetailContainer/>
                </Route>
+
+               <Route exact path="/item/bebidas/:parametros" >
+                 <ItemDetailContainer/>
+               </Route>
+               
+               <Route exact path="/item/bebidas/:Id" >
+                 <ItemDetailContainer/>
+               </Route>
+
                <Route exact path="/cart" >
                 <Cart/>
                </Route>
+
+          
             </Switch>
           
        </UseCartContext>

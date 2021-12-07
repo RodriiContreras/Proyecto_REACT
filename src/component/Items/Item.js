@@ -1,13 +1,14 @@
 import React from 'react'
 import './Item.css'
 
-function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem,paramsId,idalmacenador}){
+function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem}){
     return (
         <div id='item_cardcontainer' >
         <div>
-            <img style={{width:'220px',height:'150px'}} src={imagen}></img>
+            <img id='item_image' alt='imagen de hamburguesa' src={imagen}></img>
         </div>
-        <h1 style={{fontSize:'20px',color:'black',fontFamily:'Raleway, sans-serif'}}>{nombreItem}</h1>
+        <h1 id='item_title'>{nombreItem}</h1>
+        <p style={{color:'black',fontWeight:'bolder',fontFamily:'Raleway, sans-serif'}}>(incluyen Papas!)</p>
         <div>
          <p style={{color:'black',fontWeight:'bolder',fontFamily:'Raleway, sans-serif'}}>Precio: ${precioItem}</p>
         </div>
@@ -23,9 +24,9 @@ function Item({finalizar,descripcion,Itemcount,ruta,imagen,nombreItem,precioItem
           <div id='item_itemcount'>
               {Itemcount}
           </div>
-          <div style={{fontFamily:'Raleway, sans-serif'}}>
+
               {finalizar}
-          </div>
+
 
 
         </div>

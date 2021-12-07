@@ -3,7 +3,6 @@ import {CartContext} from './Context/CartContext'
 import ItemCount from './ItemCount/ItemCount'
 import ItemList from './Items/ItemList'
 import {useEffect, useState} from 'react'
-import ItemDetailContainer from './Items/ItemDetailContainer'
 import { Link, useParams } from 'react-router-dom'
 import CheeseBurger from './imagen/cheeseBurger.jpg'
 import TapaArterias from './imagen/TapaArterias.jpg'
@@ -20,17 +19,20 @@ import './ItemListContainer.css'
 
 function ItemListContainer(props){
   const [boolean, setBoolean] = useState(false)
+  const [booleanLink, setBooleanLink] = useState(true)
+  const [booleanItems, setBooleanItems] = useState(false)
   const [count, setCount] = useState(0)
 function onAdd(cantidad){
 setCount(cantidad)
 setBoolean(true)
+setBooleanItems(false)
 console.log(cantidad)}
 
 function Click ({id,precio,titulo,imagen}){  
 const {setItemCart,itemCart} = useContext(CartContext)
 
  const addToCart =  ({id,precio,titulo,imagen}) =>{
-   setTimeout(() => {
+
 const productoContext = {item:{id,precio,titulo,imagen},quantity:count}
 const findIndex = itemCart.findIndex(item => productoContext.item.id === item.item.id)
 if (findIndex === -1){
@@ -47,11 +49,10 @@ else{
 console.log(findIndex)
 console.log(productoContext)
 
-}, 200);
  }
   return(
       <div id='divLink'>
-       {boolean && <Link  onClick={()=>addToCart({id,precio,titulo,imagen})} style={{color:'black',textDecoration:'none'}}  to='/cart'>Finalizar Mi Pedido</Link>}
+       {boolean && <Link  style={{color:'black',fontSize:'20px',textDecoration:'none'}} to='/cart'><button onClick={()=>addToCart({id,precio,titulo,imagen})} style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'50px'}}>Finalizar mi Pedido</button></Link>}
       </div>
   )
    }
@@ -65,8 +66,8 @@ const items =[
     key:1,
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='1' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto1} to='/productos/1'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount1'> <ItemCount id='boton1' stock={10} inicial={1} onAdd={onAdd}/></div>,
+    link:<Link id='1' style={{textDecoration:'none',color:'black',fontSize:'20px'}} onClick={producto1} to='/productos/1'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div> { booleanItems ?<ItemCount id='boton1' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar: <Click id={'1'} titulo={'Cheese Burger'} imagen ={CheeseBurger} precio={650}/>
   },
     {id:'2',
@@ -76,9 +77,9 @@ const items =[
     key:2,
     imagen:TapaArterias,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='2' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto2} to='/productos/2'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount2'><ItemCount id='boton2' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto2'><Click id={'2'} titulo={'Cheese Burger'} imagen ={TapaArterias} precio={550}/></div>
+    link:<Link id='2' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto2} to='/productos/2'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{ booleanItems ? <ItemCount id='boton2' stock={10} inicial={1} onAdd={onAdd}/> : <div></div>}</div>,
+    finalizar:<Click id={'2'} titulo={'Cheese Burger'} imagen ={TapaArterias} precio={550}/>
     },
     {id:'3',
     titulo:'Veggie Burger',
@@ -87,9 +88,9 @@ const items =[
     key:3,
     imagen:VeganBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='3' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto3} to='/productos/3'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount3'><ItemCount id='boton3' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto3'><Click id={'3'} titulo={'Veggie Burger'} imagen ={TapaArterias} precio={550}/></div>
+    link:<Link id='3' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto3} to='/productos/3'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount id='boton3' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'3'} titulo={'Veggie Burger'} imagen ={TapaArterias} precio={550}/>
     },
     {id:'4',
     titulo:'Double Bacon',
@@ -98,9 +99,9 @@ const items =[
     key:4,
     imagen:Bacon,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='4' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto4} to='/productos/4'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount4'><ItemCount id='boton4' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto4'><Click id={'4'} titulo={'Double Bacon'} imagen ={Bacon} precio={550}/></div>
+    link:<Link id='4' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto4} to='/productos/4'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{ booleanItems ?<ItemCount id='boton4' stock={10} inicial={1} onAdd={onAdd}/>: <div></div>}</div>,
+    finalizar:<Click id={'4'} titulo={'Double Bacon'} imagen ={Bacon} precio={550}/>
     },
     {id:'5',
     titulo:'Tapa Arterias',
@@ -109,9 +110,9 @@ const items =[
     cantidad:5,
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='5' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto5} to='/productos/5'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount5'><ItemCount  id='boton5' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto5'><Click id={'5'} titulo={'Tapa Arterias'} imagen ={TapaArterias} precio={550}/></div>
+    link:<Link id='5' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto5} to='/productos/5'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount  id='boton5' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'5'} titulo={'Tapa Arterias'} imagen ={TapaArterias} precio={550}/>
     },
     {id:'6',
     titulo:'Old School Burger',
@@ -120,9 +121,9 @@ const items =[
     key:6,
     imagen:OldSchool,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='6' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto6} to='/productos/6'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount6'><ItemCount  id='boton6' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto6'><Click id={'6'} titulo={'Old School Burger'} imagen ={TapaArterias} precio={550}/></div>
+    link:<Link id='6' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto6} to='/productos/6'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems? <ItemCount  id='boton6' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'6'} titulo={'Old School Burger'} imagen ={TapaArterias} precio={550}/>
     },
     {id:'7',
     titulo:'Triple CheeseBurger',
@@ -131,9 +132,9 @@ const items =[
     key:7,
     imagen:TripleCheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='7' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto7} to='/productos/7'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount7'><ItemCount  id='boton7' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto7'><Click id={'7'} titulo={'Triple CheeseBurger'} imagen ={TripleCheeseBurger} precio={550}/></div>
+    link:<Link id='7' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto7} to='/productos/7'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount  id='boton7' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'7'} titulo={'Triple CheeseBurger'} imagen ={TripleCheeseBurger} precio={550}/>
     },
     {id:'8',
     titulo:'Old School Burger',
@@ -142,9 +143,9 @@ const items =[
     key:8,
     imagen:TripleCheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='8' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto8} to='/productos/8'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount8'><ItemCount  id='boton8' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto8'><Click id={'8'} titulo={'Old School Burger'} imagen ={TripleCheeseBurger} precio={550}/></div>
+    link:<Link id='8' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto8} to='/productos/8'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems? <ItemCount  id='boton8' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
+    finalizar:<Click id={'8'} titulo={'Old School Burger'} imagen ={TripleCheeseBurger} precio={550}/>
     },
     {id:'9',
     titulo:'Double Bacon',
@@ -153,9 +154,9 @@ const items =[
     categoria:'Carne',
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='9' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto9} to='/productos/9'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount9'><ItemCount  id='boton9' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto9'><Click id={'9'} titulo={'Double Bacon'} imagen ={CheeseBurger} precio={550}/></div>
+    link:<Link id='9' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto9} to='/productos/9'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems?<ItemCount  id='boton9' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'9'} titulo={'Double Bacon'} imagen ={CheeseBurger} precio={550}/>
     },
     {id:'10',
     titulo:'Veggie Burger',
@@ -164,9 +165,9 @@ const items =[
     categoria:'Vegano',
     imagen:VeggieBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='10' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto10} to='/productos/10'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount10'><ItemCount  id='boton10' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto10'><Click id={'10'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/></div>
+    link:<Link id='10' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto10} to='/productos/10'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount  id='boton10' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
+    finalizar:<Click id={'10'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/>
     },
     {id:'11',
     titulo:'Veggie Burger',
@@ -175,9 +176,9 @@ const items =[
     categoria:'Vegano',
     imagen:VeggieBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='11' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto11} to='/productos/11'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}} id='contenedorcount11'><ItemCount  id='boton11' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto11'><Click id={'11'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/></div>
+    link:<Link id='11' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto11} to='/productos/11'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount  id='boton11' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
+    finalizar:<Click id={'11'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/>
     },
     {id:'12',
     titulo:'Veggie Burger',
@@ -186,112 +187,88 @@ const items =[
     key:12,
     imagen:VeggieBurger2,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='12' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto12} to='/productos/12'>Mas detalles</Link>,
-    Itemcount:<div style={{visibility:'hidden'}}  id='contenedorcount12'><ItemCount  id='boton12' stock={10} inicial={1} onAdd={onAdd}/></div>,
-    finalizar:<div style={{visibility:'hidden'}} id='producto12'><Click id={'12'} titulo={'Veggie Burger'} imagen ={VeggieBurger2} precio={550}/></div>
+    link:<Link id='12' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto12} to='/productos/12'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    Itemcount:<div>{booleanItems ?<ItemCount  id='boton12' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
+    finalizar:<Click id={'12'} titulo={'Veggie Burger'} imagen ={VeggieBurger2} precio={550}/>
     }
   ]
   const [idalmacenador, setIdalmacenador] = useState()
   function producto1(){
     let id = '1' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount1')
-  div.style.visibility=('visible')
-
-  },800)
-  
+    setBooleanItems(true)
+    setBooleanLink(false)
   }
   function producto2(){
     let id = '2' 
+    setBooleanLink(false)
+    setBooleanItems(true)
     setIdalmacenador(id)
-   setTimeout(()=>{
-
-  let div =document.getElementById('contenedorcount2')
-  div.style.visibility=('visible')
-  },800)
   }
   function producto3(){
     let id = '3' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount3')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
+
    }
    function producto4(){
     let id = '4' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount4')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
+
    }
    function producto5(){
     let id = '5' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-
-   let div =document.getElementById('contenedorcount5')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
    }
    function producto6(){
     let id = '6' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount6')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
+
    }
    function producto7(){
     let id = '7' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount7')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
+
    }
    function producto8(){
     let id = '8' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-
-   let div =document.getElementById('contenedorcount8')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
    }
    function producto9(){
     let id = '9' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount9')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
+
    }
    function producto10(){
     let id = '10' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount10')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
    }
    function producto11(){
     let id = '11' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount11')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
    }
    function producto12(){
     let id = '12' 
     setIdalmacenador(id)
-    setTimeout(()=>{
-   let div =document.getElementById('contenedorcount12')
-   div.style.visibility=('visible')
-   },800)
+    setBooleanItems(true)
+    setBooleanLink(false)
    }
 
 
@@ -310,148 +287,64 @@ const task = new Promise ((resuelto)=>{
     
     },200)
     
-     let boton= document.getElementById('boton1')
-        boton.addEventListener('click',function(){
-          let count = document.getElementById('contenedorcount1')
-          count.style.visibility=('hidden')
-      })
 }
 else if (productosId === '2'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton1=  document.getElementById('boton2')
-  boton1.addEventListener('click',function(){
-    let count1 = document.getElementById('contenedorcount2')
-    count1.style.visibility=('hidden')
-    let finalizar1 = document.getElementById('producto2')
-    finalizar1.style.visibility=('visible')
-  })
 
 }
 else if (productosId === '3'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton3=  document.getElementById('boton3')
-  boton3.addEventListener('click',function(){
-    let count3 = document.getElementById('contenedorcount3')
-    count3.style.visibility=('hidden')
-    let finalizar3 = document.getElementById('producto3')
-    finalizar3.style.visibility=('visible')
-  })
 }
 
 else if (productosId === '4'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton4=  document.getElementById('boton4')
-  boton4.addEventListener('click',function(){
-    let count4 = document.getElementById('contenedorcount4')
-    count4.style.visibility=('hidden')
-    let finalizar4 = document.getElementById('producto4')
-    finalizar4.style.visibility=('visible')
-  })
 }
 else if (productosId === '5'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton5=  document.getElementById('boton5')
-  boton5.addEventListener('click',function(){
-    let count5 = document.getElementById('contenedorcount5')
-    count5.style.visibility=('hidden')
-    let finalizar5 = document.getElementById('producto5')
-    finalizar5.style.visibility=('visible')
-  })
 }
 else if (productosId === '6'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton6=  document.getElementById('boton6')
-  boton6.addEventListener('click',function(){
-    let count6 = document.getElementById('contenedorcount6')
-    count6.style.visibility=('hidden')
-    let finalizar6 = document.getElementById('producto6')
-    finalizar6.style.visibility=('visible')
-  })
 }
 else if (productosId === '7'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton7=  document.getElementById('boton7')
-  boton7.addEventListener('click',function(){
-    let count7 = document.getElementById('contenedorcount7')
-    count7.style.visibility=('hidden')
-    let finalizar7 = document.getElementById('producto7')
-    finalizar7.style.visibility=('visible')
-  })
 }
 else if (productosId === '8'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton8=  document.getElementById('boton8')
-  boton8.addEventListener('click',function(){
-    let count8 = document.getElementById('contenedorcount8')
-    count8.style.visibility=('hidden')
-    let finalizar8 = document.getElementById('producto8')
-    finalizar8.style.visibility=('visible')
-  })
 }
 else if (productosId === '9'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton9=  document.getElementById('boton9')
-  boton9.addEventListener('click',function(){
-    let count9 = document.getElementById('contenedorcount8')
-    count9.style.visibility=('hidden')
-    let finalizar9 = document.getElementById('producto9')
-    finalizar9.style.visibility=('visible')
-  })
 }
 else if (productosId === '10'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton10=  document.getElementById('boton10')
-  boton10.addEventListener('click',function(){
-    let count10 = document.getElementById('contenedorcount10')
-    count10.style.visibility=('hidden')
-    let finalizar10 = document.getElementById('producto10')
-    finalizar10.style.visibility=('visible')
-  })
 }
 else if (productosId === '11'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton11=  document.getElementById('boton11')
-  boton11.addEventListener('click',function(){
-    let count11 = document.getElementById('contenedorcount11')
-    count11.style.visibility=('hidden')
-    let finalizar11 = document.getElementById('producto11')
-    finalizar11.style.visibility=('visible')
-  })
 }
 else if (productosId === '12'){
   setTimeout(()=>{
      resuelto(items.filter(carne=> carne.id===productosId))   
   },200)
-  let boton12=  document.getElementById('boton12')
-  boton12.addEventListener('click',function(){
-    let count12 = document.getElementById('contenedorcount12')
-    count12.style.visibility=('hidden')
-    let finalizar12 = document.getElementById('producto12')
-    finalizar12.style.visibility=('visible')
-  })
 }
-
-
   else if(productosId ==='Vegano'){
    
    setTimeout(()=>{
@@ -475,7 +368,7 @@ else if (productosId === '12'){
         .catch(err=>{console.log('alto error')}) 
 
         
-    }),[itemLista])
+    }),[])
     return (
         <div>
           {!loading && 

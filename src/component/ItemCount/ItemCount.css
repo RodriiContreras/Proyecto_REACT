@@ -1,0 +1,35 @@
+#itemcount_container{
+    width: 250px;
+    text-align: center;
+    height: 0px;
+    top: 5px;
+    margin-top: 25px;
+}
+#contador_container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 270px;
+    flex-wrap: wrap;
+}   
+ .contador_boton{
+   display: block;
+   width: 200px;
+   position: relative;
+   left: 30px;
+   background-color: yellow;
+   font-family:Raleway, sans-serif;
+}
+
+@media only screen and (max-width: 575px){
+    #itemcount_container{
+        width: 250px;
+        margin-top: 2px;
+    }
+    #contador_container{
+        width: 180px;
+    }
+    .contador_boton{
+        width: 130px;
+        border-radius: 5%;
+    }
+}

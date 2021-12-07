@@ -16,8 +16,6 @@ import './ItemList.css'
 
            {listaItems.map(items=>
            <Item
-           idalmacenador = {idalmacenador}
-           paramsId ={paramsId}
             key={items.key}
             finalizar={items.finalizar}
              descripcion={items.descripcion} 

@@ -38,9 +38,7 @@ function Cart() {
 
  function totalPrice(){
     let total =  itemCart.reduce((accum, valor) =>(accum + (valor.quantity* valor.item.precio)),0)
-    const div = document.getElementById('totalPrice')
-    div.textContent = 'El precio TOTAL de su carrito es de:  $' + total
-
+  
     return total
   }
 
@@ -77,7 +75,7 @@ function Cart() {
 )}
 </Table>
 }
-<p style={{position:'relative',top:'2px'}} id='totalPrice'></p>
+{itemCart.length !==0 ?<p style={{position:'relative',top:'2px'}} id='totalPrice'>{totalPrice}</p> : <h2>Total de su Carrito : {totalPrice} </h2>}
  {itemCart.length !==0 && 
 <Form id='cart_form'
   onSubmit={handlerSubmit}
