@@ -5,8 +5,11 @@ import './ItemList.css'
     return(
         <div>
     {!loading&& 
-        <div id='listcontainer_items'>
-
+        <div id='listcontainer_items'> 
+       <div id='listcontainer_opacity'   style={
+         paramsId === 'Carne' ? {height:'1000px'} 
+        : paramsId === 'Vegano' || idalmacenador?{height:'763.5px'}
+        :{height:'1600px'}}><p></p></div>
             <div id='flexcontainer_items'
              style={
          paramsId === 'Carne' ? {height:'1000px'} 

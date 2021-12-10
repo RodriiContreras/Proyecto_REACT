@@ -52,7 +52,7 @@ console.log(productoContext)
  }
   return(
       <div id='divLink'>
-       {boolean && <Link  style={{color:'black',fontSize:'20px',textDecoration:'none'}} to='/cart'><button onClick={()=>addToCart({id,precio,titulo,imagen})} style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'50px'}}>Finalizar mi Pedido</button></Link>}
+       {boolean && <Link   to='/cart'><button onClick={()=>addToCart({id,precio,titulo,imagen})} style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'50px'}}>Finalizar mi Pedido</button></Link>}
       </div>
   )
    }

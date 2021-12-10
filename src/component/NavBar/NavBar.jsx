@@ -10,7 +10,6 @@ function NavBar() {
             <NavLink  to='/'><img  id='navbar_logo' src={Logo}></img></NavLink>
             <NavLink className='navbar_secciones' to="/productos">Productos</NavLink>
             <NavLink className='navbar_secciones' to="/sucursales">Sucursales</NavLink>
-            <NavLink className='navbar_secciones' to="/contactanos">Contactanos</NavLink>
         </div>
         <CartWidget/>
 

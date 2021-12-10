@@ -1,5 +1,11 @@
 #listcontainer_items{
-    background-image: url('../imagen/wallpaper.jpg');
+background-image: url('../imagen/HamburguesaPortada.jpg');
+}
+#listcontainer_opacity{
+    position: absolute;
+    width: 100%;
+    background: black;
+    opacity: 75%;
 }
 #flexcontainer_items{
 display: flex;
