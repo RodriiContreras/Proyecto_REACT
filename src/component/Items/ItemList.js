@@ -20,6 +20,7 @@ import './ItemList.css'
            {listaItems.map(items=>
            <Item
             key={items.key}
+            paramsId={paramsId}
             finalizar={items.finalizar}
              descripcion={items.descripcion} 
              Itemcount={items.Itemcount}

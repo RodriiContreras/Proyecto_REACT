@@ -66,7 +66,7 @@ const items =[
     key:1,
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='1' style={{textDecoration:'none',color:'black',fontSize:'20px'}} onClick={producto1} to='/productos/1'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='1' style={{textDecoration:'none',color:'black',fontSize:'20px'}} onClick={producto1} to='/productos/1'>{booleanLink ?<button className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div> { booleanItems ?<ItemCount id='boton1' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar: <Click id={'1'} titulo={'Cheese Burger'} imagen ={CheeseBurger} precio={650}/>
   },
@@ -77,7 +77,7 @@ const items =[
     key:2,
     imagen:TapaArterias,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='2' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto2} to='/productos/2'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='2' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto2} to='/productos/2'>{booleanLink ?<button className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{ booleanItems ? <ItemCount id='boton2' stock={10} inicial={1} onAdd={onAdd}/> : <div></div>}</div>,
     finalizar:<Click id={'2'} titulo={'Cheese Burger'} imagen ={TapaArterias} precio={550}/>
     },
@@ -88,7 +88,7 @@ const items =[
     key:3,
     imagen:VeganBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='3' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto3} to='/productos/3'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='3' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto3} to='/productos/3'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount id='boton3' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'3'} titulo={'Veggie Burger'} imagen ={TapaArterias} precio={550}/>
     },
@@ -99,7 +99,7 @@ const items =[
     key:4,
     imagen:Bacon,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='4' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto4} to='/productos/4'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='4' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto4} to='/productos/4'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{ booleanItems ?<ItemCount id='boton4' stock={10} inicial={1} onAdd={onAdd}/>: <div></div>}</div>,
     finalizar:<Click id={'4'} titulo={'Double Bacon'} imagen ={Bacon} precio={550}/>
     },
@@ -110,7 +110,7 @@ const items =[
     cantidad:5,
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='5' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto5} to='/productos/5'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='5' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto5} to='/productos/5'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount  id='boton5' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'5'} titulo={'Tapa Arterias'} imagen ={TapaArterias} precio={550}/>
     },
@@ -121,7 +121,7 @@ const items =[
     key:6,
     imagen:OldSchool,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='6' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto6} to='/productos/6'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='6' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto6} to='/productos/6'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems? <ItemCount  id='boton6' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'6'} titulo={'Old School Burger'} imagen ={TapaArterias} precio={550}/>
     },
@@ -132,7 +132,7 @@ const items =[
     key:7,
     imagen:TripleCheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='7' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto7} to='/productos/7'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='7' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto7} to='/productos/7'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount  id='boton7' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'7'} titulo={'Triple CheeseBurger'} imagen ={TripleCheeseBurger} precio={550}/>
     },
@@ -143,7 +143,7 @@ const items =[
     key:8,
     imagen:TripleCheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='8' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto8} to='/productos/8'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='8' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto8} to='/productos/8'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems? <ItemCount  id='boton8' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
     finalizar:<Click id={'8'} titulo={'Old School Burger'} imagen ={TripleCheeseBurger} precio={550}/>
     },
@@ -154,7 +154,7 @@ const items =[
     categoria:'Carne',
     imagen:CheeseBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='9' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto9} to='/productos/9'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='9' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto9} to='/productos/9'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems?<ItemCount  id='boton9' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'9'} titulo={'Double Bacon'} imagen ={CheeseBurger} precio={550}/>
     },
@@ -165,7 +165,7 @@ const items =[
     categoria:'Vegano',
     imagen:VeggieBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='10' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto10} to='/productos/10'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='10' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto10} to='/productos/10'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount  id='boton10' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
     finalizar:<Click id={'10'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/>
     },
@@ -176,7 +176,7 @@ const items =[
     categoria:'Vegano',
     imagen:VeggieBurger,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='11' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto11} to='/productos/11'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='11' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto11} to='/productos/11'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount  id='boton11' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
     finalizar:<Click id={'11'} titulo={'Veggie Burger'} imagen ={VeggieBurger} precio={550}/>
     },
@@ -187,7 +187,7 @@ const items =[
     key:12,
     imagen:VeggieBurger2,
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-    link:<Link id='12' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto12} to='/productos/12'>{booleanLink ?<button style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'55px'}}>Ver el Producto</button> :<div></div>}</Link>,
+    link:<Link id='12' style={{textDecoration:'none',color:'black',fontSize:'18px'}} onClick={producto12} to='/productos/12'>{booleanLink ?<button  className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div>{booleanItems ?<ItemCount  id='boton12' stock={10} inicial={1} onAdd={onAdd}/>:<div></div>}</div>,
     finalizar:<Click id={'12'} titulo={'Veggie Burger'} imagen ={VeggieBurger2} precio={550}/>
     }

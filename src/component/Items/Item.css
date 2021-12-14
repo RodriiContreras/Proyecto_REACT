@@ -8,14 +8,45 @@
     background-color: #e2e1e1;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+#item_cardcontainerDetallado{
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 20px;
+    height: 600px;
+    width: 855px;
+    background-color: #e2e1e1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#item_imageDetallado{
+    margin-left: 5px;
+    width: 500px;
+}
+#item_contenedordatos{
+    text-align: center;
+    width: 510px;
+}
 #item_title{
     font-size: 20px;
     color: black;
     font-family:Raleway, sans-serif;
 }
-
-#descripcion{
-    font-size: 16px;
+#item_titleDetallado{
+    font-size: 40px;
+    color: black;
+    font-family:Raleway, sans-serif;
+}
+#descripcionDetallada{
+    width: 250px;
+  position: absolute;
+  left: 750px;
+  top: 50px;
+    font-size: 25px;
+}
+#item_itemcountDetallado{
+position: absolute;
+left: 730px;
+top: 420px;
 }
 
 

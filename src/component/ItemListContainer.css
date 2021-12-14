@@ -39,6 +39,18 @@
     color: rgb(255, 208, 0);
 }
 
+.listcontainer_verproducto{
+   font-family:Raleway, sans-serif;
+   width:98%;
+   position:relative;
+   top:55px;
+   background-color: rgba(237,176,38,255);
+
+}
+.listcontainer_verproducto:hover{
+   background-color: white;
+   transition: 1s;
+}
 
 @media only screen and (max-width: 575px){
     #listcontainer_containerflex{

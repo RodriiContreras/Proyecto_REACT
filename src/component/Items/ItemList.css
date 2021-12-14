@@ -1,11 +1,11 @@
 #listcontainer_items{
-background-color: black;
+background-color: rgb(253, 251, 251);
 }
 #listcontainer_opacity{
     position: absolute;
     width: 100%;
     background: black;
-    opacity: 75%;
+    opacity: 15%;
 }
 #flexcontainer_items{
 display: flex;

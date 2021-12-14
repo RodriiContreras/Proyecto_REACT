@@ -10,6 +10,7 @@ import wallpaper from '../imagen/wallpaper.jpg'
 function ItemDetail({listaCervezas,detailBoolean}) {
     const [cantidad, setCantidad] = useState(0)
     const [boolean,setBoolean] = useState(true)
+    const [booleanLink,setBooleanLink] = useState(false)
     const {setItemCart,itemCart} = useContext(CartContext)
 
     const CambioEstado = ()=>{
@@ -17,6 +18,8 @@ function ItemDetail({listaCervezas,detailBoolean}) {
     }
     const onAdd= (cantidades) =>{
     setCantidad(cantidades)
+    setBooleanLink(true)
+    setBoolean(true)
     }
    const Click = ({titulo,id,imagen,precio}) =>{
        const addToCart=()=>{
@@ -48,11 +51,12 @@ function ItemDetail({listaCervezas,detailBoolean}) {
                  <div><img style={{width:'95px'}} src={bebidas.url}></img></div> 
                 <h1 style={{fontSize:'25px'}}>{bebidas.titulo}</h1>
                 <div><p> Precio: ${bebidas.precio}</p></div>
-                <div style={{position:'relative',right:'5px',bottom:'20px'}}>
-                 <Link onClick={CambioEstado} to={`/item/bebidas/${bebidas.id}`}>Mas Detalles</Link>
-                <ItemCount titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}  stock={10} inicial={1} onAdd={onAdd}/>
-                <Click titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}/>
-                </div>
+            
+                 <Link onClick={CambioEstado} to={`/item/bebidas/${bebidas.id}`}><button onClick={CambioEstado}   id='Itemdetail_Verproducto'>Ver el Producto</button></Link>
+
+                { !boolean ?<ItemCount titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}  stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}
+                 { booleanLink ? <div id='detail_finalizar'><Click titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}/> </div> : <div></div> }
+     
             </div>))}
        </div>
     )
