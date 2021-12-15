@@ -109,7 +109,7 @@ function Item({finalizar,paramsId,descripcion,Itemcount,ruta,imagen,nombreItem,p
           <div id='item_itemcountDetallado'>
               {Itemcount}
           </div>
-
+    
               {finalizar}
         </div>
         }

@@ -41,17 +41,25 @@ function Cart() {
   
     return total
   }
+  const vaciarCarrito =() =>{
+    setItemCart([])
+  }
 
 
 
-    const {itemCart}  = useContext(CartContext)
+    const {itemCart,setItemCart}  = useContext(CartContext)
     console.log(itemCart)
     return (
         <div>
    <div style={{width:'100%',textAlign:'center',backgroundColor:'black'}}><h1 style={{color:'white'}}> Su Carrito</h1></div>
 
 {itemCart.length !== 0 &&
-<Table striped bordered hover>
+
+<div>
+
+<button style={{position:'relative',left:'47%',fontFamily:'Raleway, sans-serif',backgroundColor:'orange'}} onClick={vaciarCarrito}>Vaciar mi Carrito</button>
+
+<Table style={{marginTop:'10px'}} striped bordered hover>
 <tr>
       <th>Nombre Del Producto</th>
       <th>Cantidad</th>
@@ -69,11 +77,11 @@ function Cart() {
       { item.newQuantity >10 && <td>{item.item.precio * item.newQuantity}</td> }
     </tr>
                 </tbody> 
-
-
-
 )}
 </Table>
+
+
+</div>
 }
 {itemCart.length !==0 ?<p style={{position:'relative',top:'2px'}} id='totalPrice'>{totalPrice}</p> : <h2>Total de su Carrito : {totalPrice} </h2>}
  {itemCart.length !==0 && 

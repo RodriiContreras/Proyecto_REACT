@@ -28,11 +28,10 @@ setBoolean(true)
 setBooleanItems(false)
 console.log(cantidad)}
 
-function Click ({id,precio,titulo,imagen}){  
+const Click = ({id,precio,titulo,imagen}) =>{  
+
 const {setItemCart,itemCart} = useContext(CartContext)
-
  const addToCart =  ({id,precio,titulo,imagen}) =>{
-
 const productoContext = {item:{id,precio,titulo,imagen},quantity:count}
 const findIndex = itemCart.findIndex(item => productoContext.item.id === item.item.id)
 if (findIndex === -1){
@@ -46,13 +45,12 @@ else{
   const oldList = itemCart.filter(item=>item.item.id !== productoContext.item.id)
   setItemCart([...oldList,{item:productoContext.item,newQuantity}])
 }
-console.log(findIndex)
-console.log(productoContext)
+
 
  }
   return(
       <div id='divLink'>
-       {boolean && <Link   to='/cart'><button onClick={()=>addToCart({id,precio,titulo,imagen})} style={{fontFamily:'Raleway, sans-serif',width:'98%',position:'relative',top:'50px'}}>Finalizar mi Pedido</button></Link>}
+       {boolean && <Link to='/cart'><button onClick={()=>addToCart({id,precio,titulo,imagen})} style={{fontFamily:'Raleway, sans-serif',height:'40px',width:'100%'}}>Finalizar mi Pedido</button></Link>}
       </div>
   )
    }
@@ -68,7 +66,7 @@ const items =[
     descripcion:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
     link:<Link id='1' style={{textDecoration:'none',color:'black',fontSize:'20px'}} onClick={producto1} to='/productos/1'>{booleanLink ?<button className='listcontainer_verproducto'>Ver el Producto</button> :<div></div>}</Link>,
     Itemcount:<div> { booleanItems ?<ItemCount id='boton1' stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}</div>,
-    finalizar: <Click id={'1'} titulo={'Cheese Burger'} imagen ={CheeseBurger} precio={650}/>
+    finalizar:<Click id={'1'} titulo={'Cheese Burger'} imagen ={CheeseBurger} precio={650}/>
   },
     {id:'2',
     titulo:'Cheese Burger',
@@ -368,7 +366,7 @@ else if (productosId === '12'){
         .catch(err=>{console.log('alto error')}) 
 
         
-    }),[])
+    }),[productosId])
     return (
         <div>
           {!loading && 

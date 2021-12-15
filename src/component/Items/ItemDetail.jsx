@@ -14,7 +14,9 @@ function ItemDetail({listaCervezas,detailBoolean}) {
     const {setItemCart,itemCart} = useContext(CartContext)
 
     const CambioEstado = ()=>{
+      setTimeout(() => {
         setBoolean(false)
+      }, 3000);
     }
     const onAdd= (cantidades) =>{
     setCantidad(cantidades)
@@ -52,7 +54,7 @@ function ItemDetail({listaCervezas,detailBoolean}) {
                 <h1 style={{fontSize:'25px'}}>{bebidas.titulo}</h1>
                 <div><p> Precio: ${bebidas.precio}</p></div>
             
-                 <Link onClick={CambioEstado} to={`/item/bebidas/${bebidas.id}`}><button onClick={CambioEstado}   id='Itemdetail_Verproducto'>Ver el Producto</button></Link>
+                 <Link to={`/item/bebidas/${bebidas.id}`}><button onClick={CambioEstado}   id='Itemdetail_Verproducto'>Ver el Producto</button></Link>
 
                 { !boolean ?<ItemCount titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}  stock={10} inicial={1} onAdd={onAdd}/> :<div></div>}
                  { booleanLink ? <div id='detail_finalizar'><Click titulo={bebidas.titulo} id={bebidas.id} imagen={bebidas.url} precio={bebidas.precio}/> </div> : <div></div> }
