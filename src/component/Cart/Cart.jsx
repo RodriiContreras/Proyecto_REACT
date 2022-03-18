@@ -5,8 +5,20 @@ import {getFireDb} from '../Firebase/firebase'
 import { collection,addDoc } from 'firebase/firestore/lite'
 import {Table,Button,Form} from 'react-bootstrap'
 import './Cart.css'
+import Swal from 'sweetalert2'
 
 function Cart() {
+
+  const sweetAlert = ()=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Tu pedido ha sido registrado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+   }
+
   const [buyer, setBuyer] = useState(initialState)
  const handlerChange= (evt) =>{
    setBuyer(
@@ -37,6 +49,7 @@ function Cart() {
  }
 
  function totalPrice(){
+
     let total =  itemCart.reduce((accum, valor) =>(accum + (valor.quantity* valor.item.precio)),0)
   
     return total
@@ -110,7 +123,7 @@ function Cart() {
     <Form.Control type="email" name='email2' value={buyer.email2} placeholder="Ingrese su Email"  required/>
   </Form.Group>
 
-  <Button variant="warning" type="submit" style={{width:'100%',borderTop:'1px solid black'}}>
+  <Button variant="warning" type="submit" onClick={sweetAlert} style={{width:'100%',borderTop:'1px solid black'}}>
     Enviar Mi Pedido!
   </Button>
 </Form>

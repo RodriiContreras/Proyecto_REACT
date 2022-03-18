@@ -4,7 +4,7 @@ import {useState,useContext} from 'react'
 import { Link,useParams } from 'react-router-dom'
 import { CartContext } from '../Context/CartContext'
 import './ItemDetail.css'
-import wallpaper from '../imagen/wallpaper.jpg'
+import Swal from 'sweetalert2'
 
 
 function ItemDetail({listaCervezas,detailBoolean}) {
@@ -33,6 +33,7 @@ function ItemDetail({listaCervezas,detailBoolean}) {
               productDetail,
             ])
           }
+
           else{
             const newQuantity = itemCart[findIndex].quantity + productDetail.quantity
             const oldList = itemCart.filter(item=>item.item.id !== productDetail.item.id)

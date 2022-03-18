@@ -41,7 +41,7 @@ function App() {
 
   },[])
   return (
-  <CartContextProvider >
+  <CartContextProvider>
     <Router>
      <div className="App">
     
