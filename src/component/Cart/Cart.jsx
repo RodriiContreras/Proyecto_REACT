@@ -38,10 +38,10 @@ function Cart() {
   console.log(precioTotal)
   if (buyer.email === buyer.email2){
    const db = getFireDb()
-   const colleccion = addDoc(collection(db,'pedidos'),{
-  order:order
-   })
-   .then(resp => console.log(resp))
+  //  const colleccion = addDoc(collection(db,'pedidos'),{
+  // order:order
+  //  })
+  //  .then(resp => console.log(resp))
   }
   else{
     console.log('los emails no son iguales')
